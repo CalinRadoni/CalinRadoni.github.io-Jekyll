@@ -12,7 +12,9 @@
     <div><a href="#Home">Home</a></div>
     <div><a href="#Projects">Projects</a></div>
     <div><a href="#ESP-Components">ESP-IDF Components</a></div>
+    <div><a href="#Library">Library</a></div>
     <div><a href="#Articles">Articles</a></div>
+    <div><a href="#Others">Others</a></div>
     <div><a href="https://github.com/CalinRadoni">GitHub</a></div>
   </header>
 
@@ -23,25 +25,58 @@
   <section id="Projects" class="tiles">
     <div class="row-title">Projects</div>
     <div class="row">
-      <article class="column" style="background-color:cornflowerblue;">
-        <b>Article title</b>
-        <p>This is the body of the article</p>
+      <article class="column status-wip">
+        <div class="tile-title">Dev12 Gateway</div>
+        <div class="tile-content">
+          This gateway connects either a RF69 network or a Lora&trade; network to a Wi-Fi network.
+          <ul style="padding: 0 1rem">
+            <li>ESP32-WROOM-32x Wi-Fi+BT+BLE module</li>
+            <li>RFM69HCW or RFM95/96/97/98(W) module</li>
+            <li>high efficiency synchronous buck converter</li>
+            <li>supply voltage supervisor</li>
+            <li>Li-Ion / Li-Polymer battery charger and socket for 18650 or 14500 backup battery</li>
+            <li>OLED display and 4 LEDs for status</li>
+            <li>placeholder for ATSHA204A, ATECC508A or ATECC608A IC</li>
+            <li>placeholder for a humidity and temperature sensor</li>
+          </ul>
+        </div>
+        <div class="tile-footer">
+          <div><i>work-in-progress</i></div>
+          <div><a href="https://github.com/CalinRadoni/Dev12-GW/www/index.html">www</a></div>
+          <div><a href="https://github.com/CalinRadoni/Dev12-GW">Repo</a></div>
+        </div>
       </article>
-      <article class="column" style="background-color: hotpink;">
-        <b>Article title</b>
-        <p>This is the body of the article</p>
+      <article class="column status-wip">
+        <div class="tile-title">Dev33 DLED</div>
+        <div class="tile-content">
+          It is designed to control either:
+          <ul style="padding: 0 1rem">
+            <li>two strings of digital LEDS like WS2812, WS2812B, ... (<i>aka</i> NeoPixel) and derivatives like SK6812;</li>
+            <li>one string of APA102 (<i>aka</i> DotStar) and derivatives like SK9822.</li>
+          </ul>
+          Uses the ESP32's RMT peripheral and two <i>real</i> logic level shifter circuits.<br/>
+          <br/>
+          It also controls the power supply of LED strings.
+        </div>
+        <div class="tile-footer">
+          <div><i>work-in-progress</i></div>
+          <div><a href="https://github.com/CalinRadoni/Dev33-DLED/www/index.html">www</a></div>
+          <div><a href="https://github.com/CalinRadoni/Dev33-DLED">Repo</a></div>
+        </div>
       </article>
-      <article class="column">
-        <h3>Article title</h3>
-        <p>This is the body of the article</p>
-      </article>
-      <article class="column">
-        <h3>Article title</h3>
-        <p>This is the body of the article</p>
-      </article>
-      <article class="column">
-        <h3>Article title</h3>
-        <p>This is the body of the article</p>
+      <article class="column status-beta">
+        <div class="tile-title">Dev34 DLEDGrid</div>
+        <div class="tile-content">
+          Born as a <i>proof-of-concept</i>, it is a Dev33-DLED with an 8x8 grid of WS2812 LEDs
+          running in <i>Soft AP</i> mode and controlled through a web interface.<br/>
+          <br/>
+          Uses Simple OTA with firmware upload from a HTTP client
+        </div>
+        <div class="tile-footer">
+          <div><i>beta</i></div>
+          <div><a href="https://github.com/CalinRadoni/Dev34-DLEDGrid/www/index.html">www</a></div>
+          <div><a href="https://github.com/CalinRadoni/Dev34-DLEDGrid">Repo</a></div>
+        </div>
       </article>
     </div>
   </section>
@@ -49,21 +84,103 @@
   <section id="ESP-Components" class="tiles">
     <div class="row-title">ESP-Components</div>
     <div class="row">
-      <article class="column" style="background-color:cornflowerblue;">
-        <b>Article title</b>
-        <p>This is the body of the article</p>
+      <article class="column status-released">
+        <div class="tile-title">ESP32DLEDController</div>
+        <div class="tile-content">
+          Controls <i>WS2812B type</i> digital LEDs using the RMT peripheral of ESP32.<br/>
+          <br/>
+          Depends on the ESP32RMT component.<br/>
+          <br/>
+          Used by Dev33 DLED and Dev34 DLEDGrid.
+        </div>
+        <div class="tile-footer">
+          <div><i>Released</i></div>
+          <div><a href="https://github.com/CalinRadoni/ESP32DLEDController">Repo</a></div>
+        </div>
       </article>
-      <article class="column" style="background-color: hotpink;">
-        <b>Article title</b>
-        <p>This is the body of the article</p>
+      <article class="column status-released">
+        <div class="tile-title">ESP32RMT</div>
+        <div class="tile-content">
+          This is a helper component for using the ESP32's Remote Control module.<br/>
+          <br/>
+          Uses the RMT driver from `ESP-IDF` and can be used to control any of the eight channels of the RMT module.<br/>
+          <br/>
+          Used by ESP32DLEDController to control WS2812* digital LEDs.
+        </div>
+        <div class="tile-footer">
+          <div><i>Released</i></div>
+          <div><a href="https://github.com/CalinRadoni/ESP32RMT">Repo</a></div>
+        </div>
       </article>
-      <article class="column">
-        <h3>Article title</h3>
-        <p>This is the body of the article</p>
+      <article class="column status-released">
+        <div class="tile-title">ESP32SimpleOTA</div>
+        <div class="tile-content">
+          Used by Dev34 DLEDGrid.
+        </div>
+        <div class="tile-footer">
+          <div><i>Released</i></div>
+          <div><a href="https://github.com/CalinRadoni/ESP32SimpleOTA">Repo</a></div>
+        </div>
       </article>
-      <article class="column">
-        <h3>Article title</h3>
-        <p>This is the body of the article</p>
+      <article class="column status-released">
+        <div class="tile-title">ESP32Timers</div>
+        <div class="tile-content">
+          Used by Dev12, Dev33 and Dev34 DLEDGrid.
+        </div>
+        <div class="tile-footer">
+          <div><i>Released</i></div>
+          <div><a href="https://github.com/CalinRadoni/ESP32Timers">Repo</a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="Library" class="tiles">
+    <div class="row-title">Code library</div>
+    <div class="row">
+      <article class="column status-released">
+        <div class="tile-title">Debouncer</div>
+        <div class="tile-content">
+          Helper class for button debouncing.<br/>
+          <br/>
+          This should be platform and compiler agnostic.<br/>
+          <br/>
+          Used by Dev12, Dev33 DLED and Dev34 DLEDGrid.
+        </div>
+        <div class="tile-footer">
+          <div><i>Released</i></div>
+          <div><a href="https://github.com/CalinRadoni/Debouncer">Repo</a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="Articles" class="tiles">
+    <div class="row-title">Articles</div>
+    <div class="row">
+      <article class="column-articles">
+        Integration between GitHub, ESP-IDF stable (v.3.3.x) and Travis CI<br/>
+        <br/>
+        Integration between GitHub, ESP-IDF v.4 and Travis CI
+      </article>
+    </div>
+  </section>
+
+  <section id="Others" class="tiles">
+    <div class="row-title">Others</div>
+    <div class="row">
+      <article class="column status-eos">
+        <div class="tile-title">esp32_digitalLEDs</div>
+        <div class="tile-content">
+          Controls <i>WS2812B type</i> digital LEDs using the RMT peripheral of ESP32.<br/>
+          <br/>
+          This implementation uses the RMT driver from ESP-IDF and uses one RMT channel
+          for a LED strip <b>leaving the other channels free, under the control of the RMT driver</b>.
+        </div>
+        <div class="tile-footer">
+          <div><i>End-of-support</i></div>
+          <div><a href="https://github.com/CalinRadoni/esp32_digitalLEDs">Repo</a></div>
+        </div>
       </article>
     </div>
   </section>

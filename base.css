@@ -33,10 +33,24 @@ section.intro {
 section.tiles { background-color: #fff; }
 
 .row-title { margin: 0; padding: 0.5rem 1rem; font-size: 1.4rem;}
-.row { display: flex; flex-wrap: wrap;}
+.row { display: flex; flex-wrap: wrap; align-items:stretch ; }
 .row:before,.row:after { content:""; display:table; clear:both }
 
-.column { flex: 0 0 300px; padding: 1rem; margin: 0 1rem 1rem 1rem; }
+.column { flex: 0 0 300px; padding: 1rem; margin: 0 1rem 1rem 1rem; background-color: #eee;}
+.column-articles { flex: 0 0 auto; padding: 1rem; margin: 0 1rem 1rem 1rem; background-color: #eee;}
+
+div.tile-title { font-weight: bold; border-bottom: 2px solid #fff; padding-bottom: 0.5rem;}
+div.tile-content { padding: 0.5rem 0;}
+div.tile-footer { display: flex; align-items: center; border-top: 2px solid #fff; padding-top: 0.5rem; }
+div.tile-footer div { flex: 0 0 content; padding: 0 0.5em; }
+div.tile-footer div:first-child {margin-right: auto; }
+div.tile-footer a { color: inherit!important; font-weight: bold; text-decoration: none; }
+div.tile-footer a:hover { color: #0080ff!important }
+
+.status-wip { background-color: #eee;}
+.status-beta { background-color: lightskyblue;}
+.status-released { background-color: cornflowerblue;}
+.status-eos { background-color: lightpink; color: #876; }
 
 footer {
   color:#222!important;
@@ -48,7 +62,6 @@ footer {
 footer div:last-child { margin-left: auto;}
 footer a { color: inherit!important; font-weight: bold; text-decoration: none; }
 footer a:hover { color: #0080ff!important }
-
 
 div.code { font-family: monospace; }
 
