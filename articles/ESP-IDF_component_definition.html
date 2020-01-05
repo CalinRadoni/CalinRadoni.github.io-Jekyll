@@ -8,62 +8,61 @@
 </head>
 
 <body>
-  <section class="article-header">
+  <section class="intro">
     Notes on component definition for ESP-IDF stable (v3.3.x) and ESP-IDF v4.x
   </section>
   <section class="article-body">
     <p>Minimal CMakeLists.txt file:</p>
 
     <p class="code-title">ESP-IDF stable (v3.3.x)</p>
-    <p class="code">
+    <pre class="AAA">
       set(COMPONENT_SRCS "foo.c" "bar.c")
       set(COMPONENT_ADD_INCLUDEDIRS ".")
       register_component()
-    </p>
+    </pre>
     <p class="code-title">ESP-IDF v4.x</p>
-    <p class="code">
+    <pre class="C++">
       idf_component_register(SRCS "foo.c" "bar.c"
                              INCLUDE_DIRS ".")
-    </p>
-
+    </pre>
 
     <p>If the component needs other components <b>only</b> for compiling it add them as <b>private required</b>
 
     <div class="code-title">ESP-IDF stable (v3.3.x)</div>
-    <div class="code">
+    <pre>
       set(COMPONENT_SRCS "foo.c" "bar.c")
       set(COMPONENT_ADD_INCLUDEDIRS ".")
       set(COMPONENT_PRIV_REQUIRES componentA componentB)
       register_component()
-    </div>
+    </pre>
 
     <div class="code-title">ESP-IDF v4.x</div>
-    <div class="code">
+    <pre>
       idf_component_register(SRCS "foo.c" "bar.c"
                              INCLUDE_DIRS "."
                              PRIV_REQUIRES componentA componentB)
-    </div>
+    </pre>
     </p>
 
     else add them as <b>reqired</b> and will be available for the entire project
 
     <div class="code-title">ESP-IDF stable (v3.3.x)</div>
-    <div class="code">
+    <pre>
       set(COMPONENT_SRCS "foo.c" "bar.c")
       set(COMPONENT_ADD_INCLUDEDIRS ".")
       set(COMPONENT_PRIV_REQUIRES componentA componentB)
       set(COMPONENT_REQUIRES componentC componentD)
       register_component()
-    </div>
+    </pre>
 
     <div class="code-title">ESP-IDF v4.x</div>
-    <div class="code">
+    <pre>
       idf_component_register(SRCS "foo.c" "bar.c"
                              INCLUDE_DIRS "."
                              PRIV_REQUIRES componentA componentB
                              REQUIRES componentC componentD)
-    </div>
-</div>
+    </pre>
+</pre>
 
   </section>
   <section class="article-footer">
