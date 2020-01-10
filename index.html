@@ -9,22 +9,26 @@
 
 <body>
   <header id="Home">
-    <div><a href="#Home">Home</a></div>
-    <div><a href="#HomeAutomation">Home Automation</a></div>
-    <div><a href="#ESP-Components">ESP-IDF Components</a></div>
-    <div><a href="#Library">Library</a></div>
-    <div><a href="#Articles">Articles</a></div>
-    <div><a href="#Others">Others</a></div>
-    <div><a href="https://github.com/CalinRadoni">GitHub</a></div>
+    <div class="topNavItem"><a href="#Home">Home</a></div>
+    <div class="topNavItem"><a href="#HomeAutomation">Home Automation</a></div>
+    <div class="topNavItem"><a href="#ESP-Components">ESP-IDF Components</a></div>
+    <div class="topNavItem"><a href="#Library">Library</a></div>
+    <div class="topNavItem"><a href="#Articles">Articles</a></div>
+    <div class="topNavItem"><a href="#Others">Others</a></div>
+    <div class="topNavItem"><a href="https://github.com/CalinRadoni">GitHub</a></div>
   </header>
 
   <section class="intro">
-    Calin Radoni's Open Source projects, libraries, code snippets, articles, ...
+    Calin Radoni's Open Source projects,<br/>libraries, code snippets, articles, ...
   </section>
 
   <section id="HomeAutomation" class="tiles">
-    <div class="row-title"><div>Home Automation</div><div><a href="#Home">top</a></div></div>
     <div class="row">
+      <article class="tile tile-row-name">
+        <div class="tile-content">
+          Home Automation
+        </div>
+      </article>
 
       <article class="tile tile-w3">
         <div class="tile-top status-wip">
@@ -85,9 +89,13 @@
     </div>
   </section>
 
-  <section id="ESP-Components" class="tiles-even">
-    <div class="row-title"><div>ESP-Components</div><div><a href="#Home">top</a></div></div>
+  <section id="ESP-Components" class="tiles">
     <div class="row">
+      <article class="tile tile-row-name">
+        <div class="tile-content">
+          ESP-Components
+        </div>
+      </article>
 
       <article class="tile tile-w1">
         <div class="tile-top status-released">
@@ -150,8 +158,13 @@
   </section>
 
   <section id="Library" class="tiles">
-    <div class="row-title"><div>Code library</div><div><a href="#Home">top</a></div></div>
     <div class="row">
+      <article class="tile tile-row-name">
+        <div class="tile-content">
+          Code library
+        </div>
+      </article>
+
       <article class="tile tile-w1">
         <div class="tile-top status-released">
           <div class="flexc">
@@ -169,24 +182,37 @@
     </div>
   </section>
 
-  <section id="Articles" class="tiles-even">
-    <div class="row-title"><div>Articles</div><div><a href="#Home">top</a></div></div>
-    <div class="article-row">
-      <article class="article-tile">
-        <a href="articles/TravisCI_ESP-IDF_v3.html">Integration between GitHub, ESP-IDF stable (v3.3.x) and Travis CI</a>
+  <section id="Articles" class="tiles">
+    <div class="row">
+      <article class="tile tile-row-name">
+        <div class="tile-content">
+          Articles
+        </div>
       </article>
-      <article class="article-tile">
-        <a href="articles/TravisCI_ESP-IDF_v4.html">Integration between GitHub, ESP-IDF v4 and Travis CI</a>
+      <article class="tile tile-wAuto">
+        <div class="tile-content">
+        <article class="article-tile">
+          <a href="articles/TravisCI_ESP-IDF_v3.html">Integration between GitHub, ESP-IDF stable (v3.3.x) and Travis CI</a>
+        </article>
+        <article class="article-tile">
+          <a href="articles/TravisCI_ESP-IDF_v4.html">Integration between GitHub, ESP-IDF v4 and Travis CI</a>
+        </article>
+        <article class="article-tile">
+          <a href="articles/ESP-IDF_component_definition.html">Notes on component definition for ESP-IDF stable (v3.3.x) and ESP-IDF v4.x</a>
+        </article>
+        </div>
       </article>
-      <article class="article-tile">
-        <a href="articles/ESP-IDF_component_definition.html">Notes on component definition for ESP-IDF stable (v3.3.x) and ESP-IDF v4.x</a>
-      </article>
-    </div>
+  </div>
   </section>
 
   <section id="Others" class="tiles">
-    <div class="row-title"><div>Others</div><div><a href="#Home">top</a></div></div>
     <div class="row">
+      <article class="tile tile-row-name">
+        <div class="tile-content">
+          Others
+        </div>
+      </article>
+
       <article class="tile tile-w1">
         <div class="tile-top status-eos">
           <div class="flexc">

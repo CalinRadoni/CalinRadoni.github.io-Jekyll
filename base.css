@@ -1,56 +1,86 @@
 :root {
-  --header-color: #eee;
-  --header-text-color: #222;
-  --intro-color: #0039b3; /*#17F;*/
-  --intro-text-color: #fff;
-  --link-color:  #0039b3;
-  --hover-color: #1a62ff;
-  --page-back-color: #fff;
-  --page-back-color-even: #eee;
-  --tile-content-color: #fff;
-  --footer-color: #eee;
-  --footer-text-color: #222;
-  --color-wip: #eff4ff;
-  --color-beta: #ccdcff;
-  --color-released: #99b9ff;
-  --color-eos: #ff661a;
+  --color-background: #121212;
+  --color-surface: rgba(21, 101, 192, 0.08);
+  --color-primary: rgba(21, 101, 192, 1);
+  --color-secondary: #888888;
+  --color-on-background: #FFFFFF;
+  --color-on-surface:    rgba(255, 255, 255, 0.9);
+  --color-on-primary:    #FFFFFF;
+  --color-on-secondary:  #FFFFFF;
+  --color-on-surface-80: rgba(255, 255, 255, 0.8);
+
+  --color-focused: rgba(21, 101, 192, 0.12);
+  --color-elevated: rgba(21, 101, 192, 0.16);
+
+  --color-wip: transparent;
+  --color-beta: transparent;
+  --color-released: transparent;
+  --color-eos: transparent;
+
+  --header-height: 100px;
   --border-radius: 5px;
 }
 
 * { box-sizing: border-box }
 
+html {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Helvetica,Arial,sans-serif;
+  font-size: 16px; font-weight: 400;
+  line-height: 1.25;
+  padding: 0;
+}
 body {
+  background-color: var(--color-background); color: var(--color-on-background);
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
-a { font-weight: bold; text-decoration: none; color: var(--link-color); }
-a:hover { color: var(--hover-color); opacity: 0.7; }
+a { font-size: 1.2rem; font-weight: 500; text-decoration: none; color: var(--color-primary); }
+a:hover { color: var(--color-on-background); background-color: var(--color-focused); }
 
 header {
-  background-color: var(--header-color); color: var(--header-text-color);
-  width:100%; padding: 0 1rem;
-  display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: center;
+  background-color: var(--color-background); color: var(--color-on-background);
+  display: flex; flex-wrap: wrap; align-items: stretch;
+  height: var(--header-height);
+  position: relative;
 }
-header div { padding: 1em }
+header div:first-child { margin-right: auto }
 header div:last-child { margin-left: auto }
+header a {color: var(--color-on-primary);}
+div.topNavItem {
+  flex: 0 0 auto;
+  display: flex;
+}
+div.topNavItem a {
+  padding: 1rem;
+  text-align: center;
+  display: flex; align-items: center;
+}
 
 section.intro {
   display: block; clear: both;
-  font-size: 2vw; font-weight: normal;
-  background-color:var(--intro-color); color: var(--intro-text-color);
+  font-size: 4rem; font-weight:100;
+  background-color: var(--color-primary); color: var(--color-on-primary);
   text-align: center;
-  padding: 2rem;
+  padding: 6rem 1rem;
+  margin-bottom: 2rem;
 }
 
-.tiles      { background-color: var(--page-back-color) }
-.tiles-even { background-color: var(--page-back-color-even) }
+.tiles {
+  background-color: var(--color-background);
+  max-width: 1600px;
+  margin: auto;
+}
+.tiles-even {
+  background-color: var(--color-background);
+  max-width: 1600px;
+  margin: auto;
+}
 
-.row-title { display: flex; align-items: center }
+.row-title { display: flex; align-items: center;}
 .row-title div { flex: 0 0 content }
 .row-title div:first-child { padding: 0.5rem 1rem; font-size: 1.4rem }
 .row-title div:last-child { margin-left: auto; padding-right: 1em }
-.row { display: flex; flex-wrap: wrap; align-items: stretch ; }
+.row { display: flex; flex-wrap: wrap; align-items: stretch; margin: auto; padding-bottom: 2rem; }
 .row:before,.row:after { content:""; display:table; clear:both }
 
 .flexc { display: flex; flex-direction: column; flex: 0 0 content }
@@ -59,10 +89,16 @@ section.intro {
 .tile {
   display: flex; flex-direction: column; align-items: stretch;
   margin: 0 0 8px 12px;
-  border: 1px solid rgba(160, 160, 160, 0.4);
+  /*border: 1px solid rgba(160, 160, 160, 0.4);*/
   border-radius: var(--border-radius);
-  background-color: var(--tile-content-color);
+  background-color: var(--color-surface); color: var(--color-on-surface);
 }
+.tile-row-name {
+  flex: 0 0 auto;
+  writing-mode: tb-rl; transform: rotate(-180deg); text-align: center; font-size: 1.4rem;
+  background-color: var(--color-primary); color: var(--color-on-primary);
+}
+.tile-wAuto { flex: 0 0 auto }
 .tile-w1 { flex: 0 0 320px }
 .tile-w2 { flex: 0 0 486px }
 .tile-w3 { flex: 0 0 652px }
@@ -75,7 +111,7 @@ section.intro {
 .tile-top div:first-child { margin-right: auto }
 .tile-title { font-size: 1.1em; font-weight: bold }
 .tile-status { font-style: italic }
-.tile-content { padding: 0.5em 1em }
+.tile-content { padding: 0.5em 1em; color: var(--color-on-surface-80); }
 .tile-content ul { padding: 0 0 0.5em 1em; margin: 0 }
 .tile-content p { padding: 0 0 0.5em 0; margin: 0 }
 
@@ -93,8 +129,8 @@ section.intro {
 .status-eos { background-color:var(--color-eos) }
 
 footer {
-  background-color:var(--footer-color)!important; color:var(--footer-text-color)!important;
-  width: 100%; padding: 1rem;
+  background-color:var(--color-surface); color:var(--color-on-surface-80);
+  width: 100%; padding: 2rem 1rem;
   display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
 }
 footer div:last-child { margin-left: auto }
@@ -114,14 +150,14 @@ footer div:last-child { margin-left: auto }
 }
 
 pre[class]::before {
-  content: 'highlight: ' attr(class);
+  content: 'class attribute is: ' attr(class);
   display: block;
   text-align: right;
 }
 
 pre {
-  border: 1px solid red;
-  border-left: 0.5rem solid lightgreen;
+  border: 1px solid var(--color-elevated);
+  border-left: 0.5rem solid var(--color-primary);
   box-sizing: border-box;
 
   font-family: monospace;
@@ -129,11 +165,7 @@ pre {
   padding: 6px 1rem!important;
   margin: 0 0 0 1rem!important;
 	overflow: auto;
-  color: black;
-  background-color: white;
+  color: var(--color-on-surface);
+  background-color: var(--color-surface);
   white-space: pre-line;
-}
-
-@media screen and (max-width: 800px) {
-  section.intro { font-size: 16px }
 }

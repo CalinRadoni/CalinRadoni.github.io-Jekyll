@@ -8,9 +8,15 @@
 </head>
 
 <body>
-  <section class="intro">
-    Notes on component definition for ESP-IDF stable (v3.3.x) and ESP-IDF v4.x
-  </section>
+  <header>
+    <div class="topNavItem">
+      <pre>
+      Notes on component definition for ESP-IDF stable (v3.3.x) and ESP-IDF v4.x
+      </pre>
+    </div>
+    <div class="topNavItem"><a href="../index.html">Home</a></div>
+  </header>
+
   <section class="article-body">
     <p>Minimal CMakeLists.txt file:</p>
 
@@ -26,27 +32,25 @@
                              INCLUDE_DIRS ".")
     </pre>
 
-    <p>If the component needs other components <b>only</b> for compiling it add them as <b>private required</b>
+    <p>If the component needs other components <b>only</b> for compiling it add them as <b>private required</b></p>
 
-    <div class="code-title">ESP-IDF stable (v3.3.x)</div>
+    <p class="code-title">ESP-IDF stable (v3.3.x)</p>
     <pre>
       set(COMPONENT_SRCS "foo.c" "bar.c")
       set(COMPONENT_ADD_INCLUDEDIRS ".")
       set(COMPONENT_PRIV_REQUIRES componentA componentB)
       register_component()
     </pre>
-
-    <div class="code-title">ESP-IDF v4.x</div>
+    <p class="code-title">ESP-IDF v4.x</p>
     <pre>
       idf_component_register(SRCS "foo.c" "bar.c"
                              INCLUDE_DIRS "."
                              PRIV_REQUIRES componentA componentB)
     </pre>
-    </p>
 
-    else add them as <b>reqired</b> and will be available for the entire project
+    <p>else add them as <b>reqired</b> and will be available for the entire project</p>
 
-    <div class="code-title">ESP-IDF stable (v3.3.x)</div>
+    <p class="code-title">ESP-IDF stable (v3.3.x)</p>
     <pre>
       set(COMPONENT_SRCS "foo.c" "bar.c")
       set(COMPONENT_ADD_INCLUDEDIRS ".")
@@ -54,19 +58,20 @@
       set(COMPONENT_REQUIRES componentC componentD)
       register_component()
     </pre>
-
-    <div class="code-title">ESP-IDF v4.x</div>
+    <p class="code-title">ESP-IDF v4.x</p>
     <pre>
       idf_component_register(SRCS "foo.c" "bar.c"
                              INCLUDE_DIRS "."
                              PRIV_REQUIRES componentA componentB
                              REQUIRES componentC componentD)
     </pre>
-</pre>
+  </section>
 
-  </section>
-  <section class="article-footer">
-    <a href="../index.html">Home</a>
-  </section>
+  <footer>
+    <p>
+      &copy; 2019 - present <a href="https://github.com/CalinRadoni">Calin Radoni</a><br/>
+      Unless otherwise specified, site's Code is released under the <a href="https://github.com/CalinRadoni/CalinRadoni.github.io/blob/master/LICENSE">MIT License</a> and Docs released under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+    </p>
+  </footer>
 </body>
 </html>
