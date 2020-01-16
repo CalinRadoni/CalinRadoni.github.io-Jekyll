@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CalinRadoni.github.io</title>
+  <link rel="stylesheet" href="base.css">
+</head>
+
+<body>
+  <header id="Home">
+    <div class="nav-logo">
+      <p class="logo-title">Calin Radoni</p>
+      <p class="logo-subtitle primary-color">creator, builder, hack3r, :)</p>
+    </div>
+    <nav>
+      <div class="topNavItem"><a href="#HomeAutomation">Home Automation</a></div>
+      <div class="topNavItem"><a href="#ESP-Components">ESP-IDF Components</a></div>
+      <div class="topNavItem"><a href="#Library">Library</a></div>
+      <div class="topNavItem"><a href="#Articles">Articles</a></div>
+      <div class="topNavItem"><a href="#Others">Others</a></div>
+      <div class="topNavItem"><a href="https://github.com/CalinRadoni">GitHub</a></div>
+    </nav>
+  </header>
+
+  <section class="intro">
+    <div class="about-site">
+      <p class="about-text">Home Automation</p>
+    </div>
+  </section>
+
+  <section id="HomeAutomation" class="tiles">
+    <div class="row">
+      <article class="tile tile-row-name">
+        <div class="tile-content">
+          Home Automation
+        </div>
+      </article>
+
+      <article class="tile tile-w3">
+        <div class="tile-top status-wip">
+          <div class="flexc">
+            <div class="tile-title"><a href="https://github.com/CalinRadoni/Dev12-GW/www/index.html">Dev12 Gateway</a></div>
+            <div class="tile-status">work-in-progress</div>
+          </div>
+          <div><a href="https://github.com/CalinRadoni/Dev12-GW"><img src="GitHub-Mark-32px.png"></a></div>
+        </div>
+        <div class="tile-content">
+          <p>Wi-Fi connectivity for a RFM69 network or a Lora&trade; network.</p>
+          <ul>
+            <li>ESP32-WROOM-32x Wi-Fi+BT+BLE module</li>
+            <li>RFM69HCW or RFM95/96/97/98(W) module</li>
+            <li>high efficiency synchronous buck converter</li>
+            <li>supply voltage supervisor</li>
+            <li>Li-Ion / Li-Polymer battery charger and socket for 18650 or 14500 backup battery</li>
+            <li>OLED display and 4 LEDs for status</li>
+            <li>placeholder for ATSHA204A, ATECC508A or ATECC608A IC</li>
+            <li>placeholder for a humidity and temperature sensor</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="tile tile-w2">
+        <div class="tile-top status-wip">
+          <div class="flexc">
+            <div class="tile-title"><a href="https://github.com/CalinRadoni/Dev33-DLED/www/index.html">Dev33 DLED</a></div>
+            <div class="tile-status">work-in-progress</div>
+          </div>
+          <div><a href="https://github.com/CalinRadoni/Dev33-DLED"><img src="GitHub-Mark-32px.png"></a></div>
+        </div>
+        <div class="tile-content">
+          <p>It is designed to control either:</p>
+          <ul>
+            <li>two strings of digital LEDS like WS2812, WS2812B, ... (<i>aka</i> NeoPixel) and derivatives like SK6812;</li>
+            <li>one string of APA102 (<i>aka</i> DotStar) and derivatives like SK9822.</li>
+          </ul>
+          <p>Uses the ESP32's RMT peripheral and two <i>real</i> logic level shifter circuits.</p>
+          <p>It also controls the power supply of LED strings.</p>
+        </div>
+      </article>
+
+      <article class="tile tile-w1">
+        <div class="tile-top status-beta">
+          <div class="flexc">
+            <div class="tile-title"><a href="https://github.com/CalinRadoni/Dev34-DLEDGrid/www/index.html">Dev34 DLEDGrid</a></div>
+            <div class="tile-status">beta</div>
+          </div>
+          <div><a href="https://github.com/CalinRadoni/Dev34-DLEDGrid"><img src="GitHub-Mark-32px.png"></a></div>
+        </div>
+        <div class="tile-content">
+          <p>Born as a <i>proof-of-concept</i>, it is a Dev33-DLED with an 8x8 grid of WS2812 LEDs
+          running in <i>Soft AP</i> mode and controlled through a web interface.</p>
+          <p>Uses Simple OTA with firmware upload from a HTTP client.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="ESP-Components" class="tiles">
+    <div class="row">
+      <article class="tile tile-row-name">
+        <div class="tile-content">
+          ESP-Components
+        </div>
+      </article>
+
+      <article class="tile tile-w1">
+        <div class="tile-top status-released">
+          <div class="flexc">
+            <div class="tile-title"><a href="https://github.com/CalinRadoni/ESP32DLEDController">ESP32DLEDController</a></div>
+            <div class="tile-status">released</div>
+          </div>
+          <div><a href="https://github.com/CalinRadoni/ESP32DLEDController"><img src="GitHub-Mark-32px.png"></a></div>
+        </div>
+        <div class="tile-content">
+          <p>Controls <i>WS2812B type</i> digital LEDs using the RMT peripheral of ESP32.</p>
+          <p>Depends on the ESP32RMT component.</p>
+          <p>Used by Dev33 DLED and Dev34 DLEDGrid.</p>
+        </div>
+      </article>
+
+      <article class="tile tile-w1">
+        <div class="tile-top status-released">
+          <div class="flexc">
+            <div class="tile-title"><a href="https://github.com/CalinRadoni/ESP32RMT">ESP32RMT</a></div>
+            <div class="tile-status">released</div>
+          </div>
+          <div><a href="https://github.com/CalinRadoni/ESP32RMT"><img src="GitHub-Mark-32px.png"></a></div>
+        </div>
+        <div class="tile-content">
+          <p>This is a helper component for using the ESP32's Remote Control module.</p>
+          <p>Uses the RMT driver from `ESP-IDF` and can be used to control any of the eight channels of the RMT module.</p>
+          <p>Used by ESP32DLEDController to control WS2812* digital LEDs.</p>
+        </div>
+      </article>
+
+      <article class="tile tile-w1">
+        <div class="tile-top status-released">
+          <div class="flexc">
+            <div class="tile-title"><a href="https://github.com/CalinRadoni/ESP32SimpleOTA">ESP32SimpleOTA</a></div>
+            <div class="tile-status">released</div>
+          </div>
+          <div><a href="https://github.com/CalinRadoni/ESP32SimpleOTA"><img src="GitHub-Mark-32px.png"></a></div>
+        </div>
+        <div class="tile-content">
+          <p>This is a helper component to perform OTA updates for ESP32.</p>
+          <p>Used by Dev34 DLEDGrid.</p>
+        </div>
+      </article>
+
+      <article class="tile tile-w1">
+        <div class="tile-top status-released">
+          <div class="flexc">
+            <div class="tile-title"><a href="https://github.com/CalinRadoni/ESP32Timers">ESP32Timers</a></div>
+            <div class="tile-status">released</div>
+          </div>
+          <div><a href="https://github.com/CalinRadoni/ESP32Timers"><img src="GitHub-Mark-32px.png"></a></div>
+        </div>
+        <div class="tile-content">
+          <p>This is a helper component for using ESP32's timers.</p>
+          <p>Used by Dev12, Dev33 and Dev34 DLEDGrid.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="Library" class="tiles">
+    <div class="row">
+      <article class="tile tile-row-name">
+        <div class="tile-content">
+          Code library
+        </div>
+      </article>
+
+      <article class="tile tile-w1">
+        <div class="tile-top status-released">
+          <div class="flexc">
+            <div class="tile-title"><a href="https://github.com/CalinRadoni/Debouncer">Debouncer</a></div>
+            <div class="tile-status">released</div>
+          </div>
+          <div><a href="https://github.com/CalinRadoni/Debouncer"><img src="GitHub-Mark-32px.png"></a></div>
+        </div>
+        <div class="tile-content">
+          <p>Helper class for button debouncing.</p>
+          <p>This should be platform and compiler agnostic.</p>
+          <p>Used by Dev12, Dev33 and Dev34 DLEDGrid.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="Articles" class="tiles">
+    <div class="row">
+      <article class="tile tile-row-name">
+        <div class="tile-content">
+          Articles
+        </div>
+      </article>
+      <article class="tile tile-wAuto">
+        <div class="tile-content">
+        <article class="article-tile">
+          <a href="articles/TravisCI_ESP-IDF_v3.html">Integration between GitHub, ESP-IDF stable (v3.3.x) and Travis CI</a>
+        </article>
+        <article class="article-tile">
+          <a href="articles/TravisCI_ESP-IDF_v4.html">Integration between GitHub, ESP-IDF v4 and Travis CI</a>
+        </article>
+        <article class="article-tile">
+          <a href="articles/ESP-IDF_component_definition.html">Notes on component definition for ESP-IDF stable (v3.3.x) and ESP-IDF v4.x</a>
+        </article>
+        </div>
+      </article>
+  </div>
+  </section>
+
+  <section id="Others" class="tiles">
+    <div class="row">
+      <article class="tile tile-row-name">
+        <div class="tile-content">
+          Others
+        </div>
+      </article>
+
+      <article class="tile tile-w1">
+        <div class="tile-top status-eos">
+          <div class="flexc">
+            <div class="tile-title"><a href="https://github.com/CalinRadoni/esp32_digitalLEDs">esp32_digitalLEDs</a></div>
+            <div class="tile-status">archived, end-of-support</div>
+          </div>
+          <div><a href="https://github.com/CalinRadoni/esp32_digitalLEDs"><img src="GitHub-Mark-32px.png"></a></div>
+        </div>
+        <div class="tile-content">
+          <p>Controls <i>WS2812B type</i> digital LEDs using the RMT peripheral of ESP32.</p>
+          <p>This implementation uses the RMT driver from ESP-IDF and uses one RMT channel
+            for a LED strip <b>leaving the other channels free, under the control of the RMT driver</b>.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      &copy; 2019 - present <a href="https://github.com/CalinRadoni">Calin Radoni</a><br/>
+      Unless otherwise specified, site's Code is released under the <a href="https://github.com/CalinRadoni/CalinRadoni.github.io/blob/master/LICENSE">MIT License</a> and Docs released under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+    </div>
+    <div><a href="https://github.com/CalinRadoni">GitHub</a></div>
+  </footer>
+</body>
+</html>

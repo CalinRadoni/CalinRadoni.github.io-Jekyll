@@ -1,13 +1,18 @@
 :root {
   --color-background: #121212;
-  --color-surface: rgba(21, 101, 192, 0.08);
-  --color-primary: rgba(21, 101, 192, 1);
-  --color-secondary: #888888;
+  --color-surface-08: rgba(21, 101, 192, 0.08);
+  --color-surface-12: rgba(21, 101, 192, 0.12);
+  --color-surface-16: rgba(21, 101, 192, 0.16);
+  --color-surface-24: rgba(21, 101, 192, 0.24);
+  --color-primary: rgb(255, 51, 255); /* ff33ff */
+  --color-secondary: rgb(204, 0, 204); /* cc00cc */
   --color-on-background: #FFFFFF;
   --color-on-surface:    rgba(255, 255, 255, 0.9);
   --color-on-primary:    #FFFFFF;
   --color-on-secondary:  #FFFFFF;
   --color-on-surface-80: rgba(255, 255, 255, 0.8);
+  --color-on-surface-60: rgba(255, 255, 255, 0.6);
+  --color-on-surface-40: rgba(255, 255, 255, 0.4);
 
   --color-focused: rgba(21, 101, 192, 0.12);
   --color-elevated: rgba(21, 101, 192, 0.16);
@@ -43,9 +48,25 @@ header {
   height: var(--header-height);
   position: relative;
 }
-header div:first-child { margin-right: auto }
-header div:last-child { margin-left: auto }
-header a {color: var(--color-on-primary);}
+header a {color: var(--color-on-primary) }
+header div:first-child {
+  margin-right: auto;
+}
+
+p { margin: 0 }
+
+.primary-color { color: var(--color-primary) }
+.secondary-color { color: var(--color-secondary) }
+
+div.nav-logo {
+  flex: 0 0 auto;
+  margin: auto 1rem;
+}
+.logo-title { font-size: 1.8rem; letter-spacing: 0.03em }
+.logo-subtitle { font-size: 1.2rem; font-style: italic }
+
+nav { display: flex; flex-wrap: wrap; align-items: stretch; margin-left: auto;}
+
 div.topNavItem {
   flex: 0 0 auto;
   display: flex;
@@ -58,12 +79,49 @@ div.topNavItem a {
 
 section.intro {
   display: block; clear: both;
-  font-size: 4rem; font-weight:100;
-  background-color: var(--color-primary); color: var(--color-on-primary);
-  text-align: center;
-  padding: 6rem 1rem;
-  margin-bottom: 2rem;
+  position: relative;
+  width: 80rem;
+  background-color: var(--color-surface-08);
+  margin-bottom: 3rem;
 }
+
+.about-text { font-size: 5rem; color: var(--color-on-surface-80) }
+
+div.about-site {
+  position: relative;
+  background-color: var(--color-back-logo);
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+div.TitleTile {
+  background-color: var(--color-surface); color: var(--color-on-surface);
+  display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: flex-start;
+  padding: 1rem 2rem;
+  position: absolute;
+}
+div.TileHA {
+  top: 0; right: 0rem; height: 20rem;
+  font-size: 2.5rem;
+}
+div.TileCL {
+  top: 6rem; right: 4rem; height: 14rem;
+  font-size: 2rem;
+}
+div.TileNA {
+  top: 13rem; right: 0rem; height: 7rem;
+  font-size: 2rem;
+}
+div.TitleTile::before {
+  background-image: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
+  content: "";
+  position: absolute; top:0; right:0; width: 100%; height: 1px;
+}
+
+.grad {
+  background:linear-gradient(90deg, var(--color-primary), var(--color-secondary))
+}
+
 
 .tiles {
   background-color: var(--color-background);
