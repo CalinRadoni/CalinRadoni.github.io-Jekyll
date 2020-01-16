@@ -1,9 +1,10 @@
 :root {
   --color-background: #121212;
-  --color-surface-08: rgba(21, 101, 192, 0.08);
+  --color-surface: rgba(21, 101, 192, 0.08);
   --color-surface-12: rgba(21, 101, 192, 0.12);
   --color-surface-16: rgb(47,57,81);
   --color-surface-24: rgba(21, 101, 192, 0.24);
+  --color-surface-40: rgba(21, 101, 192, 0.40);
   --color-primary: rgb(255, 51, 255); /* ff33ff */
   --color-secondary: rgb(63, 0, 63); /* cc00cc */
   --color-on-background: #FFFFFF;
@@ -39,6 +40,7 @@ html {
 body {
   background-color: var(--color-background); color: var(--color-on-background);
   margin: 0;
+  overflow: auto;
 }
 
 html, body { height: 100% }
@@ -56,28 +58,28 @@ p { margin: 0 }
 .primary-color { color: var(--color-primary) }
 .secondary-color { color: var(--color-secondary) }
 
-.intro {
+section.intro {
   margin: 0 auto 2rem auto;
   position: relative;
   height: 100%;
   width: 100%;
-  background-color: var(--color-surface-08);
   display: flex; flex-direction: column;
 }
-.row { background-color: var(--color-surface-24); }
-.row:before, .row:after { content: ""; clear: both; display: table }
+section.intro:before, section.intro:after { content: ""; clear: both; display: table }
 
 div.intro-left {
   display: flex; flex-direction: column;
+  padding: 1rem;
 }
 div.intro-right {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 1rem;
 }
 div.half { float: left; width: 100% }
 
 div.logo {
   flex: 0 0 auto;
-  padding: 2rem;
+  padding: 1rem;
   margin-bottom: auto;
 }
 .logo-title { font-size: 2rem; font-weight: 700; color: var(--color-on-background) }
@@ -89,10 +91,8 @@ div.logo {
 }
 
 div.about-site {
-  background-color: var(--color-back-logo);
   text-align: left;
-  padding: 0 0 0 2rem;
-  margin: auto 0;
+  padding: 0 1rem; margin: auto 0;
   z-index: -1;
 }
 h1, h2, h3 {
@@ -100,48 +100,51 @@ h1, h2, h3 {
   padding: 0 0 1rem 0;
   margin: 0;
 }
-h1 { font-size: 4rem; color: var(--color-on-surface-80) }
-h2 { font-size: 3rem; color: var(--color-on-background) }
-h3 { font-size: 2rem; color: var(--color-on-surface-70) }
+h1 { font-size: 3rem; color: var(--color-on-surface-80) }
+h2 { font-size: 2.3rem; color: var(--color-on-background) }
+h3 { font-size: 1.5rem; color: var(--color-on-surface-70) }
 
+div.footer {
+  margin-top: auto;
+  padding: 2rem 1rem;
+  animation: logo-fade 3s;
+}
 div.intro-footer {
   display: none;
 }
+div.bottom-footer {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
+}
 
-div.TitleTile {
+div.Tile {
   background-color: var(--color-surface); color: var(--color-on-surface);
-  display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: flex-start;
-  padding: 1rem 2rem;
-  position: absolute;
-  border: 1px dotted lightpink;
+  width: 100%;
+  position: relative;
+  display: flex; flex-direction: column;
+  padding: 0.5rem; margin: 1rem 0;
+  border-radius: 11px;
 }
-div.TileHA {
-  top: 10rem; right: 0rem; height: 20rem;
-  font-size: 2.5rem;
+div.Tile:hover { background-color: var(--color-surface-12) }
+div.TileRight { text-align: right }
+div.TileTitle {
+  flex: 0 0 auto;
+  font-size: 1.8rem; font-weight: 500; color: var(--color-on-surface-70);
+  padding: 0.5rem;
+  position: relative;
 }
-div.TileCL {
-  top: 14rem; right: 4rem; height: 14rem;
-  font-size: 2rem;
+div.TileTitle::first-letter { color: var(--color-primary) }
+div.TileContent {
+  padding: 0.5rem;
+  font-size: 1.3rem;
 }
-div.TileNA {
-  top: 25rem; right: 0rem; height: 7rem;
-  font-size: 2rem;
-}
-
-div.sc1 { grid-column: span 2; background-color: burlywood; }
-div.sc2 { grid-column: span 3; background-color: cornflowerblue; }
-div.sc3 { grid-column: span 4; background-color: lightpink; }
+div.TileContent > ul { margin: 0; padding-left: 1.5rem; list-style-type: none }
+.TileSep { background-color: var(--color-surface-40); margin: 0 1rem }
 
 /*
-div.TitleTile::before {
-  background-image: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
+div.TileTitle::before {
+  background-image: linear-gradient(90deg, var(--color-on-surface), var(--color-primary));
   content: "";
-  position: absolute; top:0; right:0; width: 100%; height: 1px;
-}
-div.TitleTile:hover {
-  background: linear-gradient(90deg, blue, yellow);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  position: absolute; bottom:0; right:0; width: 70%; height: 1px;
 }
 */
 
@@ -155,15 +158,12 @@ div.TitleTile:hover {
   -webkit-text-fill-color: transparent;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 801px) {
+body { overflow: hidden }
 div.half { width: 49.99999% }
-
-.intro {flex-direction: row;}
-
-div.intro-footer {
-  margin-top: auto;
-  padding: 2rem 1rem;
-  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
-  animation: logo-fade 3s;
-}
+section.intro { flex-direction: row }
+h1 { font-size: 4rem; color: var(--color-on-surface-80) }
+h3 { font-size: 2rem; color: var(--color-on-surface-70) }
+div.intro-footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center }
+div.bottom-footer { display: none }
 }
