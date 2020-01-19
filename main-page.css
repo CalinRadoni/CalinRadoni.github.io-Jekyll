@@ -103,14 +103,14 @@ div.intro {
   padding: 2rem 0; margin: 0 auto;
   min-width: 600px;
 }
-p.intro-title { font-size: 3rem; font-weight: 700; color: var(--color-title) }
-p.intro-sub { font-size: 1.8rem; font-weight: 500; color: var(--color-subtitle) }
+p.intro-title { font-size: 3rem; font-weight: 500; color: var(--color-title) }
+p.intro-sub { font-size: 1.8rem; font-weight: 400; color: var(--color-subtitle) }
 
 /* --- */
 
 section.warning {
   text-align: center;
-  font-size: 1.5em; font-weight: bold;
+  font-size: 1.5em; font-weight: 400;
   padding: 1rem;
   background-color: var(--color-back-1); color: var(--color-primary);
   animation: warning-fade 7s infinite;
