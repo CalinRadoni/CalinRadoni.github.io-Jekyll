@@ -108,6 +108,21 @@ p.intro-sub { font-size: 1.8rem; font-weight: 500; color: var(--color-subtitle) 
 
 /* --- */
 
+section.warning {
+  text-align: center;
+  font-size: 1.5em; font-weight: bold;
+  padding: 1rem;
+  background-color: var(--color-back-1); color: var(--color-primary);
+  animation: warning-fade 7s infinite;
+}
+@keyframes warning-fade {
+  0%   { color: var(--color-primary) }
+  50%  { color: var(--color-onback-1) }
+  100% { color: var(--color-primary) }
+}
+
+/* --- */
+
 section.main-tiles {
   margin: 2rem 0;
   width: 100%;
