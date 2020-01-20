@@ -72,6 +72,7 @@ div.logo {
   padding: 1rem 2rem;
   flex: 0 0 auto;
 }
+div.logo a { color: inherit; background-color: inherit; text-decoration: none }
 .logo-title { font-size: 2rem; font-weight: 700 }
 .logo-subtitle { font-size: 1.2rem; color: var(--color-primary); animation: logo-fade 5s }
 @keyframes logo-fade {
@@ -101,7 +102,6 @@ section.intro {
 div.intro {
   text-align: center;
   padding: 2rem 0; margin: 0 auto;
-  min-width: 600px;
 }
 p.intro-title { font-size: 3rem; font-weight: 500; color: var(--color-title) }
 p.intro-sub { font-size: 1.8rem; font-weight: 400; color: var(--color-subtitle) }
@@ -110,7 +110,7 @@ p.intro-sub { font-size: 1.8rem; font-weight: 400; color: var(--color-subtitle) 
 
 section.warning {
   text-align: center;
-  font-size: 1.5em; font-weight: 400;
+  font-size: 1.2rem; font-weight: 400;
   padding: 1rem;
   background-color: var(--color-back-1); color: var(--color-primary);
   animation: warning-fade 7s infinite;
@@ -155,7 +155,7 @@ div.main-tiles {
   .main-tile-big { grid-column: span 2; grid-row: span 1 }
 }
 
-.main-tile-ul { list-style: none; margin: 0.5rem 0; padding-left: 2rem;}
+.main-tile-ul { list-style: none; margin: 0.5rem 0; padding-left: 1rem;}
 
 /* --- */
 
@@ -165,6 +165,43 @@ section.footer {
   display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
 }
 section.footer a { font-size: 1.2rem }
+
+/* --- */
+
+.note-name {
+  width: 100%;
+  font-size: 3rem; font-weight: 500;
+  text-align: center;
+  padding: 1em 2em;
+  position: relative;
+}
+.note-home {
+  position: absolute; right: 0; top: 2rem;
+  height: 4rem;
+  padding: 0 1rem 0 1.5rem;
+  font-size: 1.7rem; font-weight: 400;
+  background-color: var(--color-surface);
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 1rem 0 0 1rem;
+}
+.note-home a { color: inherit; background-color: inherit }
+.note-home a:hover { color: var(--color-primary); border-bottom: none }
+
+.note-body {
+  margin: 2rem auto;
+  max-width: 1024px;
+}
+.note-body > p { padding-bottom: 0.7rem }
+.note-body > ul { margin: 0; padding: 0 0 0.7rem 2rem }
+.chapter1 {
+  font-size: 2rem; font-weight: 600;
+  text-align: center;
+}
+.chapter2 {
+  font-size: 1.3rem; font-weight: 600;
+}
+
+/* --- */
 
 .grad {
   background:linear-gradient(180deg, red, blue);
