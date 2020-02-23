@@ -14,6 +14,8 @@
   --main-tile-width: 335px; /* value restricted for media query */
   --main-tile-gap: 8px;
 
+  --max-note-width: 1024px;
+
   --color-surface-1: #414044;
   --color-surface-2: #bbb;
 
@@ -37,12 +39,14 @@ body {
 
 .theme1 {
   background-color: var(--color-back-1); color: var(--color-onback-1);
+  --color-back: var(--color-back-1);
   --color-title: #fff; --color-subtitle: #ddd;
   --color-surface: var(--color-surface-1);
   --color-focused: var(--color-back-1);
 }
 .theme2 {
   background-color: var(--color-back-2); color: var(--color-onback-2);
+  --color-back: var(--color-back-2);
   --color-title: #000; --color-subtitle: #222;
   --color-surface: var(--color-surface-2);
   --color-focused: var(--color-onback-2);
@@ -155,7 +159,7 @@ div.main-tiles {
   .main-tile-big { grid-column: span 2; grid-row: span 1 }
 }
 
-.main-tile-ul { list-style: none; margin: 0.5rem 0; padding-left: 1rem;}
+.main-tile-ul { list-style: none; line-height: 1.5em; margin: 0.5rem 0; padding-left: 1rem }
 
 /* --- */
 
@@ -166,15 +170,18 @@ section.footer {
 }
 section.footer a { font-size: 1.2rem }
 
+.note-width { max-width: var(--max-note-width); width: 100%; margin-left: auto; margin-right: auto }
+
 /* --- */
 
 .note-name {
   width: 100%;
-  font-size: 3rem; font-weight: 500;
   text-align: center;
-  padding: 1em 2em;
+  padding: 2rem 0;
   position: relative;
 }
+.note-title { font-size: 3rem; font-weight: 500 }
+.note-subtitle { font-size: 2rem; font-weight: 400 }
 .note-home {
   position: absolute; right: 0; top: 2rem;
   height: 4rem;
@@ -187,19 +194,30 @@ section.footer a { font-size: 1.2rem }
 .note-home a { color: inherit; background-color: inherit }
 .note-home a:hover { color: var(--color-primary); border-bottom: none }
 
-.note-body {
-  margin: 2rem auto;
-  max-width: 1024px;
-}
-.note-body > p { padding-bottom: 0.7rem }
+.note-body { margin: 2rem auto; max-width: var(--max-note-width) }
+.note-body > p { padding-bottom: 0.7rem}
 .note-body > ul { margin: 0; padding: 0 0 0.7rem 2rem }
-.chapter1 {
-  font-size: 2rem; font-weight: 600;
-  text-align: center;
+.note-table { display: flex; align-items: stretch; padding-bottom: 0.7rem; margin: 0; width: 100%; clear: both }
+.note-cell  { flex: 1 1 0; padding: 8px; display: flex; flex-direction: column }
+
+.chapter1 { font-size: 2rem; font-weight: 600; text-align: center }
+.chapter2 { font-size: 1.3rem; font-weight: 600 }
+.chapter3 { font-size: 1.1rem; font-weight: 600 }
+
+.font-s08 { font-size: 0.8rem }
+.font-s09 { font-size: 0.9rem }
+
+.code-title { margin: 0; padding: 0 1rem }
+.code-body {
+  display: block;
+  border: 1px dotted var(--color-surface);
+  border-left: 8px solid var(--color-surface);
+  font-family: monospace;
+  white-space: pre;
+  overflow: auto;
+  margin: 0; padding: 8px 1rem;
 }
-.chapter2 {
-  font-size: 1.3rem; font-weight: 600;
-}
+code { font-family: monospace }
 
 /* --- */
 
