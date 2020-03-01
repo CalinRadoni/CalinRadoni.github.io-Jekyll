@@ -1,0 +1,8 @@
+---
+# The dashes ensures that Jekyll will reads this file and transforms it to CSS.
+# Only Main files contain this front matter, not partials.
+---
+
+@import
+  "skins/{{ site.skin | default: 'light' }}",
+  "base";

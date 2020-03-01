@@ -1,0 +1,23 @@
+# Site settings
+title: CalinRadoni.github.io
+author: Calin Radoni
+email: CalinRadoni@users.noreply.github.com
+description: Calin Radoni's GitHub site, powered by Jekyll and GitHub Pages
+url: "https://calinradoni.github.io/"
+github_username: CalinRadoni
+
+meta-description: "Calin Radoni's GitHub site"
+meta-keywords: "Calin Radoni, Jekyll, GutHub Pages, pax-devices"
+
+skin: light
+
+# Build settings
+markdown: kramdown
+
+# Exclusions
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md

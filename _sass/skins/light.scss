@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+$main-color:         #ff33ff !default;
+
+$text-color:         #111 !default;
+$bg-color:           #fff !default;
+
+$link-color:         $main-color !default;
+$link-color-focused: lighten($link-color, 20%) !default;
+
+$footer-color:       #222 !default;
+$footer-bg-color:    #ddd !default;
