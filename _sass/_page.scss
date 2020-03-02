@@ -1,0 +1,7 @@
+@charset "utf-8";
+
+.page-container {
+  margin: 0 auto;
+  padding: 0 $spacing-unit;
+  max-width: calc(#{$page-content-width} - 2 * #{$spacing-unit});
+}

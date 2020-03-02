@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+.page-header {
+  color: $footer-color;
+  background-color: $footer-bg-color;
+  margin-bottom: $spacing-unit;
+  padding: $spacing-unit;
+  min-height: $header-height;
+  display: flex; flex-direction: row; align-items: stretch;
+
+  h1 { margin: auto 0 }
+}
