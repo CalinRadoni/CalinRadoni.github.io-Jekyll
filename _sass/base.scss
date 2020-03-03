@@ -66,6 +66,8 @@ a {
 .no-wrap { white-space: nowrap }
 
 // layouts
+@import '_home';
 @import '_header';
 @import '_page';
 @import '_footer';
+
