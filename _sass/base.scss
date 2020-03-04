@@ -23,6 +23,12 @@ $width-desktop: 1024px;
   }
 }
 
+@mixin media-tablet-plus {
+  @media (min-width: #{$width-tablet}) {
+    @content;
+  }
+}
+
 @mixin media-desktop {
   @media (min-width: #{$width-desktop}) {
     @content;

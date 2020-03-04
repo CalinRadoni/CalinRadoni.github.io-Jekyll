@@ -1,59 +1,57 @@
 @charset "utf-8";
 
 .home {
-  $text-color-left:  #47476b !default;
-  $bg-color-left:    #eee !default;
-  $text-color-right: #eee !default;
-  $bg-color-right:   #669 !default;
+  $text-color-left:  #52527a !default;
+  $bg-color-left:    #e0e0eb !default;
+  $div-line-left:    #c2c2d6 !default;
+
+  $text-color-right: #f0f0f5 !default;
+  $bg-color-right:   #666699 !default;
+  $div-line-right:   #8585ad !default;
 
   $link-color-left:  #600080 !default;
   $link-color-right: #e699ff !default;
 
+  $max-width-left: 400px;
+
   flex: 1 1 auto;
-  display: flex; flex-direction: row; align-items: stretch;
+  display: flex; flex-direction: column; align-items: stretch;
+  @include media-tablet-plus  { flex-direction: row }
 
-  p, h1, h2, h3 { margin: 0 }
+  h1, h2, h3 { margin: 0 0 0.25rem 0}
 
-  &-left, &-right {
-    width: 50%;
+  a { font-weight: inherit; text-decoration: none }
+
+  &-column {
     display: flex; flex-direction: column;
-    padding: $spacing-unit;
-  }
-  &-left  { color: $text-color-left;  background-color: $bg-color-left;  a { color: $link-color-left }  }
-  &-right { color: $text-color-right; background-color: $bg-color-right; a { color: $link-color-right } }
-
-  &-title {
-    border-bottom: 1px solid $text-color-left;
-    padding-bottom: $spacing-unit;
+    padding: $spacing-unit calc(2 * #{$spacing-unit});
   }
 
-  &-left-content {
-    padding-top: $spacing-unit;
-    flex: 1 1 auto;
-    direction: rtl;
-    display: flex;
+  &-w-limited, &-w-max, &-w-half { width: 100% }
+  @include media-tablet-plus {
+    &-w-limited { max-width: $max-width-left }
+    &-w-half { width: 50% }
   }
 
-  &-left-data  { margin: auto 0; li { margin-right: calc(2 * #{$spacing-unit}) } }
-  &-right-data { margin: auto 0; li { margin-left: $spacing-unit } }
-
-  &-right-content {
-    padding-bottom: $spacing-unit;
-    flex: 1 1 auto;
-    display: flex;
-  }
-
-  &-footer {
-    border-top: 1px solid $text-color-right;
-    padding-top: $spacing-unit;
-    display: flex; flex-direction: row; flex-wrap: wrap;
-    overflow: hidden;
-
-    div { padding-left: $spacing-unit }
-
-    div:first-child {
-      margin-right: auto;
-      padding-left: 0;
+  &-light {
+    color: $text-color-left;  background-color: $bg-color-left;
+    a {
+      color: $link-color-left;
+      &:hover { border-bottom: 2px dotted $link-color-left; }
     }
   }
+  &-dark {
+    color: $text-color-right; background-color: $bg-color-right;
+    a {
+      color: $link-color-right;
+      &:hover { border-bottom: 2px dotted $link-color-right; }
+    }
+  }
+
+  &-align-center { text-align: center }
+  &-align-right { text-align: right }
+
+  &-no-flex { flex: 0; margin: 0 }
+  &-flex { flex: 0 1 auto; margin: auto 0;}
+  &-data { }
 }
