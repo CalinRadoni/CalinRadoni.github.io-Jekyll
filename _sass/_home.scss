@@ -1,24 +1,24 @@
 @charset "utf-8";
 
 .home {
-  $text-color-left:  #52527a !default;
-  $bg-color-left:    #e0e0eb !default;
-  $div-line-left:    #c2c2d6 !default;
+  $text-color-light:#52527a !default;
+  $bg-color-light:  #e0e0eb !default;
+  $div-line-light:  #c2c2d6 !default;
 
-  $text-color-right: #f0f0f5 !default;
-  $bg-color-right:   #666699 !default;
-  $div-line-right:   #8585ad !default;
+  $text-color-dark: #f0f0f5 !default;
+  $bg-color-dark:   #666699 !default;
+  $div-line-dark:   #8585ad !default;
 
-  $link-color-left:  #600080 !default;
-  $link-color-right: #e699ff !default;
+  $link-color-light:#600080 !default;
+  $link-color-dark: #e699ff !default;
 
-  $max-width-left: 400px;
+  $max-width-px: 400px;
 
   flex: 1 1 auto;
   display: flex; flex-direction: column; align-items: stretch;
   @include media-tablet-plus  { flex-direction: row }
 
-  h1, h2, h3 { margin: 0 0 0.25rem 0}
+  p, h1, h2, h3 { margin: 0 0 0.3rem 0 }
 
   a { font-weight: inherit; text-decoration: none }
 
@@ -29,29 +29,32 @@
 
   &-w-limited, &-w-max, &-w-half { width: 100% }
   @include media-tablet-plus {
-    &-w-limited { max-width: $max-width-left }
+    &-w-limited { max-width: $max-width-px }
     &-w-half { width: 50% }
   }
 
   &-light {
-    color: $text-color-left;  background-color: $bg-color-left;
+    color: $text-color-light; background-color: $bg-color-light;
     a {
-      color: $link-color-left;
-      &:hover { border-bottom: 2px dotted $link-color-left; }
+      color: $link-color-light;
+      &:hover { border-bottom: 2px dotted $link-color-light; }
     }
   }
   &-dark {
-    color: $text-color-right; background-color: $bg-color-right;
+    color: $text-color-dark;  background-color: $bg-color-dark;
     a {
-      color: $link-color-right;
-      &:hover { border-bottom: 2px dotted $link-color-right; }
+      color: $link-color-dark;
+      &:hover { border-bottom: 2px dotted $link-color-dark; }
     }
   }
 
   &-align-center { text-align: center }
-  &-align-right { text-align: right }
+  &-align-right  { text-align: right }
 
   &-no-flex { flex: 0; margin: 0 }
   &-flex { flex: 0 1 auto; margin: auto 0;}
-  &-data { }
+  &-data { padding-bottom: $spacing-unit }
+
+  &-border-top    { border-top:    solid 1px $div-line-light }
+  &-border-bottom { border-bottom: solid 1px $div-line-light }
 }
