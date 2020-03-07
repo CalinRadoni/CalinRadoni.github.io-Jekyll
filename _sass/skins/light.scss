@@ -1,12 +1,17 @@
 @charset "utf-8";
 
-$main-color:         #ff33ff !default;
+$base-lightness:     50%; // keep lightness to 50%
+$base-color:         hsl(240, 20%, $base-lightness) !default;
+$base-link-color:  hsl(285, 100%, 30%) !default;
 
-$text-color:         #111 !default;
-$bg-color:           #fff !default;
+$color-back:         adjust-color($base-color,      $lightness: +40%) !default;
+$color-on-back:      adjust-color($base-color,      $lightness: -10%) !default;
+$link-color:         $base-link-color !default;
 
-$link-color:         $main-color !default;
-$link-color-focused: lighten($link-color, 20%) !default;
+$color-surface:      $base-color !default;
+$color-on-surface:   adjust-color($base-color,      $lightness: +45%) !default;
+$link-color-surface: adjust-color($base-link-color, $lightness: +50%) !default;
 
-$footer-color:       #222 !default;
-$footer-bg-color:    #d8d8d8 !default;
+$color-tag:          adjust-color($base-color,      $lightness: +10%) !default;
+$color-on-tag:       adjust-color($base-color,      $lightness: +45%) !default;
+

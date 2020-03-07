@@ -3,8 +3,8 @@
 .page-footer {
   margin-top: auto;
   padding: $spacing-unit;
-  color: $footer-color;
-  background-color: $footer-bg-color;
+  color: $color-on-surface;
+  background-color: $color-surface;
   width: 100%;
 
   display: flex;
@@ -16,6 +16,11 @@
   @include media-desktop { flex-direction: row; align-items: stretch; flex-wrap: nowrap; font-size: 1rem; }
 
   p { margin: 0 }
+
+  a {
+    color: $link-color-surface;
+    &:hover { border-bottom: 2px dotted $link-color-surface }
+  }
 
   &-left  { flex: 0 1 auto; margin: 0; }
   &-right { flex: 0 0 auto; margin: 0 0 0 auto; padding-left: $spacing-unit;

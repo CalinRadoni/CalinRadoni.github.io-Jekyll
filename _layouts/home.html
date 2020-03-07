@@ -11,7 +11,7 @@
 
       <div class="home-data home-flex home-align-right">
       <h2>pax-devices</h2>
-      <p><a href="">pax-Gateway</a> / <a href="">pax-DLED</a> / <a href="">pax-DLEDGrid</a></p>
+      <p><a href="/pax-Gateway/">pax-Gateway</a> / <a href="/pax-DLED/">pax-DLED</a> / <a href="/pax-DLEDGrid/">pax-DLEDGrid</a></p>
 
       <h2>Code library</h2>
       <p><span class="no-wrap"><a href="">ESP-IDF components</a></span> / <a href="">Generic</a> / <a href="">STM32</a></p>
@@ -20,7 +20,7 @@
       <p>many years ago I have built some robots but only two of those survived</p>
 
       <h2>About</h2>
-      <p><a href="/about/">About</a></p>
+      <p><a href="{% link pages/about.md %}">About</a></p>
       </div>
 
       <div class="home-data home-no-flex home-align-center">
@@ -30,27 +30,21 @@
 
     <div class="home-column home-dark home-w-max">
       <div class="home-data home-flex">
-        <h1>Professional experience</h1><br/>
-        <h2>Networking</h2>
         <ul>
-          <li>Routers and switches: Cisco, Allied Telesys, HP, D-Link, TP-Link</li>
-          <li>Access Points: UniFi, MikroTik, Linksys</li>
-          <li>Security devices: Cisco ASA, Check Point, UniFi Security Gateway Pro
+          {%- assign item_list = site.posts | sort | reverse -%}
+          {%- for post in item_list limit:10 -%}
+            <li>
+              <a href="{{ post.url }}">{{ post.title }}</a>
+              {{ post.excerpt }}
+            </li>
+          {%- endfor -%}
         </ul>
-        <h2>Linux</h2>
-        <ul>
-          <li>Debian: File server, Backup server, Jump box, NTP Server, Firewalls, Nagios, Suricata + ELK Stack</li>
-          <li>Kali, Ubuntu, CentOS</li>
-        </ul>
-        <h2>Windows</h2>
-        <ul>
-          <li>Active Directory</li>
-          <li>Hyper-V Server</li>
-        </ul>
-        <h2>VoIP</h2>
-        <ul>
-          <li>Unify OpenScape, Siemens Hipath</li>
-        </ul>
+      </div>
+      <div class="home-data home-no-flex">
+        <div class="tag-container">
+          <a class="" href="{% link pages/categories.md %}">Categories</a>
+          <a href="{% link pages/tags.md %}">Tags</a>
+        </div>
       </div>
     </div>
     </div>

@@ -1,0 +1,22 @@
+---
+layout: page
+title: Tags
+---
+
+<div class="tag-container">
+  {%- assign item_list = site.tags | sort -%}
+  {%- for item in item_list -%}
+  <a href="#{{ item[0] | slugify: 'ascii' }}">{{ item[0] }}</a>
+  {%- endfor -%}
+</div>
+
+<div class="tag-list">
+  {%- for item in item_list -%}
+  <h3 id="{{ item[0] | slugify: 'ascii' }}">{{ item[0] }}</h3>
+  <ul>
+    {%- for post in item[1] -%}
+    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {%- endfor -%}
+  </ul>
+  {%- endfor -%}
+</div>

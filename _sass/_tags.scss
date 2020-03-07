@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+.tag-container {
+  margin: 0.5rem 0 0 0; padding: 0;
+  display: flex; flex-direction: row; align-items: stretch; flex-wrap: wrap;
+
+  a {
+    background-color: $color-tag; color: $color-on-tag;
+    padding: 0.25rem 0.5rem;
+    margin-right: $spacing-unit;
+    border-radius: 0.25rem;
+
+    &:hover {
+      font-weight: 700;
+      border: none;
+    }
+  }
+}
+
+.tag-list {
+  margin: 1rem 0 0 0; padding: 0;
+}

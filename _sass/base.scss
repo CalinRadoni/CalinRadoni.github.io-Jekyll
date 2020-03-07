@@ -64,9 +64,9 @@ li { margin-bottom: 0 }
 a {
   font-weight: bolder;
   text-decoration: none;
-  color: $link-color;
 
-  &:hover { border-bottom: 2px solid $link-color; }
+  color: $link-color;
+  &:hover { border-bottom: 2px dotted $link-color }
 }
 
 .no-wrap { white-space: nowrap }
@@ -77,3 +77,9 @@ a {
 @import '_page';
 @import '_footer';
 
+// aux
+
+@import '_tags';
+
+// syntax highlighting
+@import '_highlight'
