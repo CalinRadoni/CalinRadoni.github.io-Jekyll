@@ -1,17 +1,6 @@
 @charset "utf-8";
 
 .home {
-  $text-color-light:#52527a !default;
-  $bg-color-light:  #e0e0eb !default;
-  $div-line-light:  #c2c2d6 !default;
-
-  $text-color-dark: #f0f0f5 !default;
-  $bg-color-dark:   #666699 !default;
-  $div-line-dark:   #8585ad !default;
-
-  $link-color-light:#600080 !default;
-  $link-color-dark: #e699ff !default;
-
   $max-width-px: 400px;
 
   flex: 1 1 auto;
@@ -34,17 +23,17 @@
   }
 
   &-light {
-    color: $text-color-light; background-color: $bg-color-light;
+    color: $color-on-back; background-color: $color-back;
     a {
-      color: $link-color-light;
-      &:hover { border-bottom: 2px dotted $link-color-light; }
+      color: $link-color;
+      &:hover { border-bottom: 2px dotted $link-color; }
     }
   }
   &-dark {
-    color: $text-color-dark;  background-color: $bg-color-dark;
+    color: $color-on-surface;  background-color: $color-surface;
     a {
-      color: $link-color-dark;
-      &:hover { border-bottom: 2px dotted $link-color-dark; }
+      color: $link-color-surface;
+      &:hover { border-bottom: 2px dotted $link-color-surface; }
     }
   }
 
@@ -55,6 +44,6 @@
   &-flex { flex: 0 1 auto; margin: auto 0;}
   &-data { padding-bottom: $spacing-unit }
 
-  &-border-top    { border-top:    solid 1px $div-line-light }
-  &-border-bottom { border-bottom: solid 1px $div-line-light }
+  &-border-top    { border-top:    solid 1px $color-surface }
+  &-border-bottom { border-bottom: solid 1px $color-surface }
 }
