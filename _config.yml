@@ -24,4 +24,4 @@ exclude:
 
 # Change default permalink format
 # permalink: /pages/:slug:output_ext
-permalink: /pages/:year-:i_day-:slug:output_ext
+permalink: /pages/:short_year:month:day-:slug:output_ext
