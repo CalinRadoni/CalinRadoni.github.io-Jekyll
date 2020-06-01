@@ -35,13 +35,13 @@ header-links:
   - name: "About"
     url: /pages/about
   - name: "GitHub"
-    url: https://github.com/CalinRadoni/simple-purple-theme
+    url: https://github.com/CalinRadoni
 
 social-links:
   - site: GitHub
     link: https://github.com/CalinRadoni
   - site: LinkedIn
-    link: https://www.linkedin.com/in/...
+    link: https://www.linkedin.com/in/calin-radoni-40293492/
 
 share-buttons:
   - Facebook

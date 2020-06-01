@@ -12,12 +12,12 @@ image-d: "The text simple purple theme written in purple over a dark gray backgr
     <h2>{{ site.description }}</h2>
   </div>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 315" class="home-hero-image">
-    <rect class="home-svg-fh" vector-effect="non-scaling-stroke" x="540" y="10"  width="40"  height="125" />
-    <rect class="home-svg-fh" vector-effect="non-scaling-stroke" x="440" y="115" width="120" height="70" />
-    <rect class="home-svg-fh" vector-effect="non-scaling-stroke" x="510" y="170" width="70"  height="70" />
-    <rect class="home-svg-ff" vector-effect="non-scaling-stroke" x="490" y="225" width="65"  height="50" />
-    <rect class="home-svg-ff" vector-effect="non-scaling-stroke" x="20"  y="290" width="565" height="20" />
-    <rect class="home-svg-ff" vector-effect="non-scaling-stroke" x="170" y="265" width="350" height="35" />
+    <rect class="home-svg-ff" vector-effect="non-scaling-stroke" x="170" y="10"  width="350" height="80" />
+    <rect class="home-svg-fh" vector-effect="non-scaling-stroke" x="440" y="70"  width="120" height="80" />
+    <rect class="home-svg-fh" vector-effect="non-scaling-stroke" x="500" y="130" width="80"  height="80" />
+    <rect class="home-svg-ff" vector-effect="non-scaling-stroke" x="355" y="190" width="200" height="60" />
+    <rect class="home-svg-ff" vector-effect="non-scaling-stroke" x="20"  y="280" width="565" height="30" />
+    <rect class="home-svg-fh" vector-effect="non-scaling-stroke" x="380" y="230" width="90"  height="65" />
   </svg>
 </section>
 
@@ -31,9 +31,8 @@ image-d: "The text simple purple theme written in purple over a dark gray backgr
         <h3>Home Automation devices</h3>
       </p>
       <p class="card-row">
-        <a href="/pax-Gateway/">pax-Gateway</a><br/>
-        <a href="/pax-DLED/">pax-DLED</a><br/>
-        <a href="/pax-DLEDGrid/">pax-DLEDGrid</a>
+        <a href="https://calinradoni.github.io/pax-Gateway/">pax-Gateway</a><br/>
+        <a href="https://calinradoni.github.io/pax-DLED/">pax-DLED</a><br/>
       </p>
     </div>
   </div>
@@ -47,19 +46,17 @@ image-d: "The text simple purple theme written in purple over a dark gray backgr
         <h3>Featured code projects:</h3>
         <nav>
           <ul>
-            <li><a href="https://calinradoni.github.io/simple-purple-theme/">ESP32DLEDController</a> controls WS2812-like LEDs using ESP32's RMT peripheral</li>
+            <li><a href="https://calinradoni.github.io/ESP32DLEDController/">ESP32DLEDController</a> controls WS2812-like LEDs using ESP32's RMT peripheral</li>
             <li><a href="https://calinradoni.github.io/simple-purple-theme/">simple-purple-theme</a> is the Jekyll theme for GitHub Pages used for this site</li>
-            <li><a href="">&nbsp;</a></li>
-            <li><a href="">&nbsp;</a></li>
-            <li><a href="">&nbsp;</a></li>
+            <li><a href="https://calinradoni.github.io/pax-DLEDGrid/">pax-DLEDGrid</a> ESP32 Wi-Fi controller (AP mode) for 64 WS2812 LEDs</li>
           </ul>
         </nav>
       </div>
       <div class="card-row">
         <h3>Projects by programming language:</h3>
         <p class="card-row">
-          <a href="">C++</a><br/>
-          <a href="">HTML + CSS/SCSS</a>
+          C++<br/>
+          HTML + CSS/SCSS
         </p>
       </div>
     </div>
@@ -69,9 +66,11 @@ image-d: "The text simple purple theme written in purple over a dark gray backgr
 <section class="row-limited">
   <div class="card card-margin1 border-hover-color card-M67">
     <div class="card-body stretched padding-1">
+      <!--
       <div class="card-row">
         <h3>Featured <a href="{{ site.baseurl }}{% link pages/index.html %}">Posts</a>:</h3>
       </div>
+      -->
       <div class="card-row">
         <h3>Tag cloud</h3>
         {% include tag-cloud-number.html %}
@@ -90,7 +89,7 @@ image-d: "The text simple purple theme written in purple over a dark gray backgr
               </li>
             {%- endfor -%}
           </ul>
-        </nav>  
+        </nav>
       </div>
     </div>
   </div>
@@ -104,8 +103,59 @@ image-d: "The text simple purple theme written in purple over a dark gray backgr
         <h3>Robotics</h3>
       </p>
       <p class="card-row">
-        many years ago I have built some robots but only two of those survived
+        many years ago I have built some robots but I only mention two:
       </p>
+      <li><a href="https://www.robotshop.com/community/forum/t/cr3cx/4392">cr3cx</a> quite finished</li>
+      <li><a href="https://www.robotshop.com/community/forum/t/cr4cx-security-robot-telepresence/3129">cr4cx</a> in standby indefinitely</li>
+    </div>
+  </div>
+</section>
+
+<section class="row-limited">
+  <div class="card card-margin1 border-hover-color card-M33">
+    <div class="card-title">
+      <img class="card-title-img-100" src="{% link assets/img/img-main-empty-3.png %}">
+    </div>
+    <div class="card-body stretched padding-1">
+      <div class="card-row">
+        <h3>Devices</h3>
+        <nav><ul>
+        <li><a href="https://calinradoni.github.io/pax-DLEDGrid/">pax-DLEDGrid</a></li>
+        <li>Light Controller for stairs</li>
+        <li>Light Controller for monochrome LED strip</li>
+        </ul></nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-margin1 border-hover-color card-M33">
+    <div class="card-title">
+      <img class="card-title-img-100" src="{% link assets/img/img-main-empty-1.png %}">
+    </div>
+    <div class="card-body stretched padding-1">
+      <div class="card-row">
+        <h3>KiCad</h3>
+        <nav><ul>
+        <li>Calin's KiCad Library</li>
+        <li>Calin's FreeCAD 3D Models for KiCad</li>
+        </ul></nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-margin1 border-hover-color card-M33">
+    <div class="card-title">
+      <img class="card-title-img-100" src="{% link assets/img/img-main-empty-2.png %}">
+    </div>
+    <div class="card-body stretched padding-1">
+      <div class="card-row">
+        <h3>Various</h3>
+        <nav><ul>
+        <li>SMD holder</li>
+        <li>Board / module holder</li>
+        <li>QnD Soldering vice</li>
+        </ul></nav>
+      </div>
     </div>
   </div>
 </section>
