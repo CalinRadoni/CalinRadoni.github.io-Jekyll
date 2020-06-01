@@ -5,7 +5,7 @@ categories: [ "Software development" ]
 tags: [ "ESP-IDF" ]
 ---
 
-For an ESP-IDF component, the content of `CMakeLists.txt` differs between versions.
+For an ESP-IDF component, the content of `CMakeLists.txt` differs between versions.<!--more-->
 However, I have used the *old* syntax with ESP-IDF v4.x without problems.
 
 `CMakeLists.txt` for ESP-IDF **stable**:

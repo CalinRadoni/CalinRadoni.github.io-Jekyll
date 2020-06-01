@@ -9,7 +9,7 @@ tags: [ "Travis CI", "ESP-IDF" ]
 
 Building an [ESP-IDF](https://docs.espressif.com/projects/esp-idf/en/latest/) project with [Travis CI](https://travis-ci.org/) is quite straightforward.
 Open ESP-IDF's [Get Started](https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html) document,
-select the desired version (*latest*, *stable*, *v4.0*, *v3.3.1*, etc.) and take note <!--more--> about the installation of:
+select the desired version (*latest*, *stable*, *v4.0*, *v3.3.1*, etc.) and take note about the installation of:
 
 - prerequisites
 - software libraries
