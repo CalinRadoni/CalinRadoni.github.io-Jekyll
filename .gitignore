@@ -12,4 +12,5 @@ _site/
 vendor/
 
 # ignore auxiliary directories
-.notes/
+/.notes/
+/.images/

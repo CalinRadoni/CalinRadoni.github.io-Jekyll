@@ -1,0 +1,60 @@
+---
+title: Tags
+---
+
+{%- capture ts -%}
+{%- for item in site.tags -%}
+{%- assign str = "@@@@" | append: item[1].size | append: "@@@@" | append: item[0] -%}
+{%- if forloop.last == false -%}
+{%- assign str = str | append: "@@@@@" -%}
+{%- endif -%}
+{{ item[0] | downcase | append: str }}
+{%- endfor -%}
+{%- endcapture -%}
+{%- assign arr = ts | split: "@@@@@" -%}
+{%- assign ars = arr | sort -%}
+<ul class="tag-cloud">
+{%- for item in ars -%}
+  {%- assign arr = item | split: "@@@@" -%}
+  {%- assign taglinkname = arr[2] | slugify: "ascii" -%}
+  <li><a href="#{{ taglinkname }}">{{ arr[2] }} ({{ arr[1] }})</a></li>
+{%- endfor -%}
+</ul>
+
+{%- for item in ars -%}
+  {%- assign arr = item | split: "@@@@" -%}
+<div class="tag-group">
+<p class="tag-group-title">
+  <svg class="svg-icon" alt="Tag"><use xlink:href="#img-tag" /></svg>
+  <span id="{{ arr[2] | slugify: 'ascii' }}">{{ arr[2] }}</h3>
+</p>
+<ul class="tag-group-list">
+  {%- assign c-tag = arr[2] -%}
+  {%- assign posts = site.tags[c-tag] -%}
+  {%- for post in posts -%}
+  <li>
+    {%- if site.use-headline and post.headline -%}
+      {%- assign xTitle = post.headline -%}
+    {%- else -%}
+      {%- assign xTitle = post.title -%}
+    {%- endif -%}
+    <a href="{{ post.url | relative_url }}">{{ xTitle }}</a>
+    {% if site.post-date-in-preview %}
+      <span>
+      {%- if post.date-modified -%}
+        {{ post.date-modified | date: site.date-format }}
+      {%- else -%}
+        {{ post.date | date: site.date-format }}
+      {%- endif -%}
+      </span>
+    {% endif %}
+    {%- if site.post-desc-in-tc-pages -%}
+      {%- if post.description -%}
+      <p>{{ post.description }}</p>
+      {%- endif -%}
+    {%- endif -%}
+  </li>
+  {%- endfor -%}
+</ul>
+</div>
+{%- endfor -%}

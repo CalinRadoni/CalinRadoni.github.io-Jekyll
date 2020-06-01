@@ -1,0 +1,52 @@
+---
+title: Posts
+# for paginator the permalink must be left default !
+permalink:
+---
+
+{% for post in paginator.posts %}
+<div class="pagination-post">
+  <p class="pagination-post-title">
+    {%- assign xTitle = post.title -%}
+    {%- if site.use-headline -%}
+      {%- if post.headline -%}
+        {%- assign xTitle = post.headline | append: " ~ " | append: post.title -%}
+      {%- endif -%}
+    {%- endif -%}
+    <a href="{{ post.url | relative_url }}">{{ xTitle }}</a>
+    {% if site.post-date-in-preview %}
+      <span>
+      {%- if post.date-modified -%}
+        {{ post.date-modified | date: site.date-format }}
+      {%- else -%}
+        {{ post.date | date: site.date-format }}
+      {%- endif -%}
+      </span>
+    {% endif %}
+  </p>
+  {%- if site.post-desc-in-posts -%}
+  <p class="pagination-post-desc">
+    {%- if post.description -%}
+      {{ post.description }}
+    {%- else -%}
+      {%- if post.content contains '<!--more-->' -%}
+        {{ post.content | split:'<!--more-->' | first | markdownify | strip_html | strip_newlines }}
+      {%- else -%}
+        {%- assign max-len = site.post-excerpt-maxlen | default: 50 -%}
+        {{ post.content | markdownify | strip_html | strip_newlines | truncatewords: max-len }}
+      {%- endif -%}
+    {%- endif -%}
+  </p>
+  {%- endif -%}
+</div>
+{% endfor %}
+
+<p class="text-center">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}"><svg class="svg-icon" alt="Previous page"><use xlink:href="#img-left" /></svg></a>
+  {% endif %}
+    <span class="pagination-page-cnt">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}"><svg class="svg-icon" alt="Next page"><use xlink:href="#img-right" /></svg></a>
+  {% endif %}
+</p>

@@ -1,0 +1,45 @@
+---
+title: Categories
+---
+
+<ul class="tag-cloud">
+{%- assign item_list = site.categories | sort -%}
+{%- for item in item_list -%}
+<li><a href="#{{ item[0] | slugify: 'ascii' }}">{{ item[0] }} ({{item[1].size}})</a></li>
+{%- endfor -%}
+</ul>
+
+{%- for item in item_list -%}
+<div class="tag-group">
+<p class="tag-group-title">
+  <svg class="svg-icon" alt="Category"><use xlink:href="#img-page" /></svg>
+  <span id="{{ item[0] | slugify: 'ascii' }}">{{ item[0] }}</h3>
+</p>
+<ul class="tag-group-list">
+  {%- for post in item[1] -%}
+  <li>
+    {%- if site.use-headline and post.headline -%}
+      {%- assign xTitle = post.headline -%}
+    {%- else -%}
+      {%- assign xTitle = post.title -%}
+    {%- endif -%}
+    <a href="{{ post.url | relative_url }}">{{ xTitle }}</a>
+    {% if site.post-date-in-preview %}
+      <span>
+      {%- if post.date-modified -%}
+        {{ post.date-modified | date: site.date-format }}
+      {%- else -%}
+        {{ post.date | date: site.date-format }}
+      {%- endif -%}
+      </span>
+    {% endif %}
+    {%- if site.post-desc-in-tc-pages -%}
+      {%- if post.description -%}
+      <p>{{ post.description }}</p>
+      {%- endif -%}
+    {%- endif -%}
+  </li>
+  {%- endfor -%}
+</ul>
+</div>
+{%- endfor -%}

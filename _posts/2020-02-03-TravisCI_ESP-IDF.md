@@ -1,28 +1,28 @@
 ---
 layout: post
 title: "Travis CI and ESP-IDF"
+date-modified: 2020-05-31
 excerpt_separator: <!--more-->
 categories: [ "Software development" ]
-tags: [ "Travis CI", "ESP-IDF", "yaml" ]
+tags: [ "Travis CI", "ESP-IDF" ]
 ---
 
 Building an [ESP-IDF](https://docs.espressif.com/projects/esp-idf/en/latest/) project with [Travis CI](https://travis-ci.org/) is quite straightforward.
 Open ESP-IDF's [Get Started](https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html) document,
 select the desired version (*latest*, *stable*, *v4.0*, *v3.3.1*, etc.) and take note <!--more--> about the installation of:
 
-* prerequisites
-* software libraries
-* tools (compiler, debugger, programmer, etc.)
+- prerequisites
+- software libraries
+- tools (compiler, debugger, programmer, etc.)
 
 and the setup of the environment variables.
 
-That was the procedure that I have used to build the following `.travis.yml` files.
-Those are installed and set in the **addons**  and **install** sections.
+That was the procedure that I have used to build the following `.travis.yml` files:
 
-In the **script** section the `example` project is built.
-If the build was successful the content of the **after_success** section is executed.
-
-In the **branches** section the build is restricted to the `master` branch only.
+- the prerequisites, software libraries and tools are installed and set in the **addons**  and **install** sections;
+- the `example` project is built in the **script** section;
+- if the build is successful the content of the **after_success** section is executed.
+- in the **branches** section the build is restricted to the `master` branch only.
 
 ## .travis.yml for ESP-IDF stable (v3.x)
 

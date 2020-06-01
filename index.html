@@ -1,0 +1,111 @@
+---
+layout: home
+image: /assets/img/default-article.png
+image-w: 1200
+image-h: 630
+image-d: "The text simple purple theme written in purple over a dark gray background"
+---
+
+<section class="home-hero">
+  <div class="home-hero-text">
+    <h1>{{ site.title }}</h1>
+    <h2>{{ site.description }}</h2>
+  </div>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 315" class="home-hero-image">
+    <rect class="home-svg-fh" vector-effect="non-scaling-stroke" x="540" y="10"  width="40"  height="125" />
+    <rect class="home-svg-fh" vector-effect="non-scaling-stroke" x="440" y="115" width="120" height="70" />
+    <rect class="home-svg-fh" vector-effect="non-scaling-stroke" x="510" y="170" width="70"  height="70" />
+    <rect class="home-svg-ff" vector-effect="non-scaling-stroke" x="490" y="225" width="65"  height="50" />
+    <rect class="home-svg-ff" vector-effect="non-scaling-stroke" x="20"  y="290" width="565" height="20" />
+    <rect class="home-svg-ff" vector-effect="non-scaling-stroke" x="170" y="265" width="350" height="35" />
+  </svg>
+</section>
+
+<section class="row-limited">
+  <div class="card card-margin1 border-hover-color card-M33">
+    <div class="card-title">
+      <img class="card-title-img-100" src="{% link assets/img/img-main-pax.png %}">
+    </div>
+    <div class="card-body stretched padding-1">
+      <p class="card-row">
+        <h3>Home Automation devices</h3>
+      </p>
+      <p class="card-row">
+        <a href="/pax-Gateway/">pax-Gateway</a><br/>
+        <a href="/pax-DLED/">pax-DLED</a><br/>
+        <a href="/pax-DLEDGrid/">pax-DLEDGrid</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="card card-flex-column card-margin1 border-hover-color card-M67">
+    <div class="card-title-simple">
+      <img class="card-title-img-100" src="{% link assets/img/img-main-code.png %}">
+    </div>
+    <div class="card-body stretched padding-1">
+      <div class="card-row">
+        <h3>Featured code projects:</h3>
+        <nav>
+          <ul>
+            <li><a href="https://calinradoni.github.io/simple-purple-theme/">ESP32DLEDController</a> controls WS2812-like LEDs using ESP32's RMT peripheral</li>
+            <li><a href="https://calinradoni.github.io/simple-purple-theme/">simple-purple-theme</a> is the Jekyll theme for GitHub Pages used for this site</li>
+            <li><a href="">&nbsp;</a></li>
+            <li><a href="">&nbsp;</a></li>
+            <li><a href="">&nbsp;</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="card-row">
+        <h3>Projects by programming language:</h3>
+        <p class="card-row">
+          <a href="">C++</a><br/>
+          <a href="">HTML + CSS/SCSS</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="row-limited">
+  <div class="card card-margin1 border-hover-color card-M67">
+    <div class="card-body stretched padding-1">
+      <div class="card-row">
+        <h3>Featured <a href="{{ site.baseurl }}{% link pages/index.html %}">Posts</a>:</h3>
+      </div>
+      <div class="card-row">
+        <h3>Tag cloud</h3>
+        {% include tag-cloud-number.html %}
+      </div>
+      <div class="card-row">
+        <h3>Newest <a href="{{ site.baseurl }}{% link pages/index.html %}">Posts</a>:</h3>
+        <nav>
+          <ul>
+            {%- for post in site.posts limit:5 -%}
+              <li>
+                {%- assign xTitle = post.title -%}
+                {%- if site.use-headline and post.headline -%}
+                  {%- assign xTitle = post.headline | append: " ~ " | append: post.title -%}
+                {%- endif -%}
+                <a href="{{ post.url | relative_url }}">{{ xTitle }}</a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </nav>  
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-margin1 border-hover-color card-M33">
+    <div class="card-title">
+      <img class="card-title-img-100" src="{% link assets/img/img-main-robots.png %}">
+    </div>
+    <div class="card-body stretched padding-1">
+      <p class="card-row">
+        <h3>Robotics</h3>
+      </p>
+      <p class="card-row">
+        many years ago I have built some robots but only two of those survived
+      </p>
+    </div>
+  </div>
+</section>
