@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Travis CI and ESP-IDF"
-date-modified: 2020-05-31
+date-modified: 2020-06-04
 excerpt_separator: <!--more-->
 categories: [ "Software development" ]
 tags: [ "Travis CI", "ESP-IDF" ]
@@ -15,7 +15,7 @@ select the desired version (*latest*, *stable*, *v4.0*, *v3.3.1*, etc.) and take
 - software libraries
 - tools (compiler, debugger, programmer, etc.)
 
-and the setup of the environment variables.
+and the setup of the environment variables.<!--more-->
 
 That was the procedure that I have used to build the following `.travis.yml` files:
 
@@ -24,13 +24,12 @@ That was the procedure that I have used to build the following `.travis.yml` fil
 - if the build is successful the content of the **after_success** section is executed.
 - in the **branches** section the build is restricted to the `master` branch only.
 
-## .travis.yml for ESP-IDF stable (v3.x)
+Check out the [Releases](https://github.com/espressif/esp-idf/releases) page to find current Long Time Support and stable releases.
+
+## .travis.yml for ESP-IDF Long Term Support release v3.3.2 (as of 2020.06.04)
 
 ```yaml
-# Travis CI integration file for
-# esp-idf "stable" release
-#
-# In 2020.02.11 the stable release was v3.3.1
+# Travis CI integration file for ESP-IDF v3.3.2
 
 os: linux
 dist: xenial
@@ -55,13 +54,15 @@ addons:
     - cmake
     - ninja-build
     - ccache
+    - libffi-dev
+    - libssl-dev
 
 install:
   - mkdir ~/esp
   - cd ~/esp
   - wget https://dl.espressif.com/dl/xtensa-esp32-elf-linux64-1.22.0-80-g6c4433a-5.2.0.tar.gz
   - tar -xzf xtensa-esp32-elf-linux64-1.22.0-80-g6c4433a-5.2.0.tar.gz
-  - git clone -b v3.3.1 --recursive https://github.com/espressif/esp-idf.git
+  - git clone -b v3.3.2 --recursive https://github.com/espressif/esp-idf.git
   - export PATH="$HOME/esp/xtensa-esp32-elf/bin:$PATH"
   - export IDF_PATH=~/esp/esp-idf
   - export PATH="$IDF_PATH/tools:$PATH"
@@ -81,11 +82,10 @@ branches:
   - master
 ```
 
-## .travis.yml for ESP-IDF stable (v4.x)
+## .travis.yml for ESP-IDF stable v4.0.1 (as of 2020-06-04)
 
 ```yaml
-# Travis CI integration file for
-# esp-idf v4.0 release
+# Travis CI integration file for ESP-IDF v4.0.1 release
 
 os: linux
 dist: xenial
@@ -103,20 +103,16 @@ addons:
     - python
     - python-pip
     - python-setuptools
-    - python-serial
-    - python-click
-    - python-cryptography
-    - python-future
-    - python-pyparsing
-    - python-pyelftools
     - cmake
     - ninja-build
     - ccache
+    - libffi-dev
+    - libssl-dev
 
 install:
   - mkdir ~/esp
   - cd ~/esp
-  - git clone -b release/v4.0 --recursive https://github.com/espressif/esp-idf.git
+  - git clone -b v4.0.1 --recursive https://github.com/espressif/esp-idf.git
   - cd ~/esp/esp-idf
   - ./install.sh
   - . ~/esp/esp-idf/export.sh
