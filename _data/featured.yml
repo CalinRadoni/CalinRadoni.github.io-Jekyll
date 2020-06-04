@@ -1,0 +1,5 @@
+posts:
+  - name: "Build a GitHub Pages site with simple-purple-theme"
+    file: /pages/200604-github-pages-site.html
+  - name: "Travis CI and ESP-IDF"
+    file: /pages/200203-travisci-esp-idf.html
