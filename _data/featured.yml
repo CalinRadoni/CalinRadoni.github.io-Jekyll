@@ -3,3 +3,14 @@ posts:
     file: /pages/200604-github-pages-site.html
   - name: "Travis CI and ESP-IDF"
     file: /pages/200203-travisci-esp-idf.html
+
+code:
+  - name: "ESP32DLEDController"
+    link: https://calinradoni.github.io/ESP32DLEDController/
+    desc: "controls WS2812-like LEDs using ESP32's RMT peripheral"
+  - name: "simple-purple-theme"
+    link: https://calinradoni.github.io/simple-purple-theme/
+    desc: "is the Jekyll theme for GitHub Pages used for this site"
+  - name: "DLEDGrid"
+    link: https://calinradoni.github.io/pax-DLEDGrid/
+    desc: "ESP32 Wi-Fi controller (AP mode) for 64 WS2812 LEDs"

@@ -42,16 +42,18 @@ image-d: "The text simple purple theme written in purple over a dark gray backgr
       <img class="card-title-img-100" src="{% link assets/img/img-main-code.png %}">
     </div>
     <div class="card-body stretched padding-1">
+      {%- if site.data.featured.code[0] %}
       <div class="card-row">
         <h3>Featured code projects:</h3>
         <nav>
           <ul>
-            <li><a href="https://calinradoni.github.io/ESP32DLEDController/">ESP32DLEDController</a> controls WS2812-like LEDs using ESP32's RMT peripheral</li>
-            <li><a href="https://calinradoni.github.io/simple-purple-theme/">simple-purple-theme</a> is the Jekyll theme for GitHub Pages used for this site</li>
-            <li><a href="https://calinradoni.github.io/pax-DLEDGrid/">pax-DLEDGrid</a> ESP32 Wi-Fi controller (AP mode) for 64 WS2812 LEDs</li>
+            {%- for item in site.data.featured.code -%}
+              <li><a href="{{ item.link }}">{{ item.name }}</a> {{ item.desc }}</li>
+            {%- endfor -%}
           </ul>
         </nav>
       </div>
+      {%- endif %}
       <div class="card-row">
         <h3>Projects by programming language:</h3>
         <p class="card-row">
