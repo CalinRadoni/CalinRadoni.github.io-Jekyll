@@ -9,6 +9,7 @@ tags: [ "ESP-IDF", "Podman", "Docker" ]
 ---
 
 These instructions are valid for Podman and Docker. If you use Docker just replace `podman` with `docker`.
+See [Podman and Ubuntu 20.04 LTS]({% post_url 2020-06-10-Podman_and_Ubuntu %}) for installation and basic usage of Podman.
 
 ## ESP-IDF Container builds
 
@@ -97,6 +98,8 @@ idf.py build
 ```
 
 As a side note, this way allows *examples* that need multiple components from the CodeLibrary.
+
+### Alternative
 
 I do **not recommend** it but an alternative would be to use it like this:
 
