@@ -123,5 +123,5 @@ plugins:
 
 # setting for jekyll-paginate
 # jekyll-paginate will produce pagination from /pages/index.html page
-paginate: 5
+paginate: 12
 paginate_path: "/pages/page:num"
