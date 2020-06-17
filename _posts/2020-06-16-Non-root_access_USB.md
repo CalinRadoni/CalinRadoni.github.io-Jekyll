@@ -3,7 +3,7 @@ layout: post
 title: "Non-root access for ST-LINK and USB-to-serial devices"
 description: "Using a user account to access ST-LINK programming interfaces, USB-to-serial converters and some other USB devices"
 #image: /assets/img/.png
-#date-modified: 2020-mm-dd
+date-modified: 2020-06-17
 categories: [ "System Administration" ]
 tags: [ "udev", "ST-LINK", "USB-to-serial", "CP2102", "CP210x" ]
 ---
@@ -34,21 +34,21 @@ ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3748", TAG+="uaccess"
 
 This rule will give access for the logged user to the USB device with `idVendor 0483` and `idProduct 3748`.
 
-To be a little more restrictive let's make sure that we offer read and write access for the logged user and its group and
-for USB subsystem only:
+To be a little more restrictive let's make sure that we offer read and write access only for the logged user
+and tie the rule to the USB subsystem:
 
 ```ini
 # STM32F3DISCOVERY rev A/B - ST-LINK/V2
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3748", MODE="660", TAG+="uaccess"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3748", MODE="600", TAG+="uaccess"
 ```
 
-**Note 1:** One can also add `GROUP="plugdev"` to permit the access only for the members of this group.
+**Note:** One can also add a group restriction like `GROUP="plugdev"` to permit the access only for the members of this group.
 
 `/dev/bus/usb/001/xxx` is not a friendly name but we have the option to use a `SYMLINK`:
 
 ```ini
 # STM32F3DISCOVERY rev A/B - ST-LINK/V2
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3748", MODE="660", TAG+="uaccess", SYMLINK+="stlinkv2_%n"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3748", MODE="600", TAG+="uaccess", SYMLINK+="stlinkv2_%n"
 ```
 
 will also create an alias for the device, `/dev/stlinkv2_8`. Better but far from perfect.
@@ -67,17 +67,17 @@ The following script creates the access rules for ST-LINK V2, V2.1 and V3:
 
 sudo tee /etc/udev/rules.d/70-st-link.rules > /dev/null <<'EOF'
 # ST-LINK V2
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3748", MODE="660", TAG+="uaccess", SYMLINK+="stlinkv2_%n"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3748", MODE="600", TAG+="uaccess", SYMLINK+="stlinkv2_%n"
 
 # ST-LINK V2.1
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374b", MODE="660", TAG+="uaccess", SYMLINK+="stlinkv2-1_%n"
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3752", MODE="660", TAG+="uaccess", SYMLINK+="stlinkv2-1_%n"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374b", MODE="600", TAG+="uaccess", SYMLINK+="stlinkv2-1_%n"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3752", MODE="600", TAG+="uaccess", SYMLINK+="stlinkv2-1_%n"
 
 # ST-LINK V3
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374d", MODE="660", TAG+="uaccess", SYMLINK+="stlinkv3loader_%n"
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374e", MODE="660", TAG+="uaccess", SYMLINK+="stlinkv3_%n"
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374f", MODE="660", TAG+="uaccess", SYMLINK+="stlinkv3_%n"
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3753", MODE="660", TAG+="uaccess", SYMLINK+="stlinkv3_%n"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374d", MODE="600", TAG+="uaccess", SYMLINK+="stlinkv3loader_%n"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374e", MODE="600", TAG+="uaccess", SYMLINK+="stlinkv3_%n"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374f", MODE="600", TAG+="uaccess", SYMLINK+="stlinkv3_%n"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3753", MODE="600", TAG+="uaccess", SYMLINK+="stlinkv3_%n"
 EOF
 
 sudo udevadm control --reload-rules
@@ -97,11 +97,11 @@ we can make the following rules:
 
 ```sh
 # the blue USB-to-serial adapter
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", ATTRS{serial}=="0099", MODE="660", TAG+="uaccess", SYMLINK+="u2s-blue"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", ATTRS{serial}=="0099", MODE="600", TAG+="uaccess", SYMLINK+="u2s-blue"
 # the black USB-to-serial adapter
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", ATTRS{serial}=="0099", MODE="660", TAG+="uaccess", SYMLINK+="u2s-black"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", ATTRS{serial}=="0099", MODE="600", TAG+="uaccess", SYMLINK+="u2s-black"
 # ESP32-DevKitC
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", ATTRS{serial}=="0101", MODE="660", TAG+="uaccess", SYMLINK+="esp32-devkitc"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", ATTRS{serial}=="0101", MODE="600", TAG+="uaccess", SYMLINK+="esp32-devkitc"
 ```
 
 and the devices will be available also under the following aliases:
@@ -122,25 +122,25 @@ The following script creates access rules for ST-LINK V2, V2.1 and V3 and for so
 
 sudo tee /etc/udev/rules.d/70-st-link.rules > /dev/null <<'EOF'
 # ST-LINK V2
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3748", MODE="660", TAG+="uaccess", SYMLINK+="stlinkv2_%n"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3748", MODE="600", TAG+="uaccess", SYMLINK+="stlinkv2_%n"
 
 # ST-LINK V2.1
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374b", MODE="660", TAG+="uaccess", SYMLINK+="stlinkv2-1_%n"
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3752", MODE="660", TAG+="uaccess", SYMLINK+="stlinkv2-1_%n"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374b", MODE="600", TAG+="uaccess", SYMLINK+="stlinkv2-1_%n"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3752", MODE="600", TAG+="uaccess", SYMLINK+="stlinkv2-1_%n"
 
 # ST-LINK V3
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374d", MODE="660", TAG+="uaccess", SYMLINK+="stlinkv3loader_%n"
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374e", MODE="660", TAG+="uaccess", SYMLINK+="stlinkv3_%n"
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374f", MODE="660", TAG+="uaccess", SYMLINK+="stlinkv3_%n"
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3753", MODE="660", TAG+="uaccess", SYMLINK+="stlinkv3_%n"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374d", MODE="600", TAG+="uaccess", SYMLINK+="stlinkv3loader_%n"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374e", MODE="600", TAG+="uaccess", SYMLINK+="stlinkv3_%n"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374f", MODE="600", TAG+="uaccess", SYMLINK+="stlinkv3_%n"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3753", MODE="600", TAG+="uaccess", SYMLINK+="stlinkv3_%n"
 EOF
 
 sudo tee /etc/udev/rules.d/70-usb-to-serial.rules > /dev/null <<'EOF'
 # CP2101 - CP 2104
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE="660", TAG+="uaccess", SYMLINK+="usb2ser_%n"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE="600", TAG+="uaccess", SYMLINK+="usb2ser_%n"
 
 # ATEN UC-232A
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="0557", ATTRS{idProduct}=="2008", MODE="660", TAG+="uaccess", SYMLINK+="usb2ser_aten_%n"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0557", ATTRS{idProduct}=="2008", MODE="600", TAG+="uaccess", SYMLINK+="usb2ser_aten_%n"
 EOF
 
 sudo udevadm control --reload-rules
