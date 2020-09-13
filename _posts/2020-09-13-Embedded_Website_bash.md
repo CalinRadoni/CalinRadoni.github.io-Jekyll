@@ -90,10 +90,11 @@ Commands to execute from the `html` directory:
 ## Next steps
 
 - use more linters ?
-- use `gulp-sass` to compile SASS files
-- use `gulp-imagemin` to minify PNG, JPEG, GIF and SVG images
-- use `gulp-autoprefixer` to include all the vendor prefixes for the CSS
-- there are a lot of gulp packages, just search [npmjs](https://www.npmjs.com/)
+- use a SASS compiler to create CSS files
+- use a package like `imagemin` to minify PNG, JPEG, GIF and SVG images
+- include / embed images and favicon
+- use `autoprefixer` to include all the vendor prefixes for the CSS
+- there are a lot of javascript packages, just search [npmjs](https://www.npmjs.com/)
 - ... and do not forget about Google
 
 ## Files
