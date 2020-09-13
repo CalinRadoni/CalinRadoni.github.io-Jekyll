@@ -1,4 +1,6 @@
 posts:
+  - name: "Embedded website workflow - bash"
+    file: pages/200913-embedded-website-bash.html
   - name: "Non-root access for ST-LINK and USB-to-serial devices"
     file: pages/200616-non-root-access-usb.html
   - name: "Build a GitHub Pages site with simple-purple-theme"

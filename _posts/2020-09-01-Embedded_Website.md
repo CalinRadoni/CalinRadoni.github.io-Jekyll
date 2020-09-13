@@ -1,15 +1,17 @@
 ---
 layout: post
-title: "Embedded website workflow"
-description: "Workflow to embed the website in firmware"
+title: "Embedded website workflow - Gulp"
+description: "Workflow to embed the website in firmware - Gulp"
 #image: /assets/img/.png
-#date-modified: 2020-mm-dd
+date-modified: 2020-09-13
 categories: [ "Web development" ]
-tags: [ "Gulp", "Firmware" ]
+tags: [ "Gulp", "npm", "Firmware" ]
 ---
 
 The purpose of this post is to show a method that creates minimized and compressed
 HTML files, with CSS and scripts included, from separate files.
+
+**Note:** *these days I am using [Embedded website workflow - bash]({% post_url 2020-09-13-Embedded_Website_bash %})*.
 
 These are useful for sites embedded in firmware. Embedding web files in firmware generally have some benefits like:
 
