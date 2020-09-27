@@ -33,12 +33,12 @@ Go to [ESP-IDF Releases](https://github.com/espressif/esp-idf/releases) page and
 #!/bin/bash
 
 # prepare destination directory
-baseDir="~/esp"
-if [ -d "$BaseDir" ]; then
-    now=(/bin/date +%s)
+baseDir="$HOME/esp"
+if [ -d "$baseDir" ]; then
+    now=$(/bin/date +%s)
     newDir="${baseDir}.${now}"
-    # backup old directory
     mv "$baseDir" "$newDir"
+    echo "$baseDir was saved as $newDir"
 fi
 mkdir "$baseDir" || exit 1
 
