@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Travis CI and ESP-IDF"
-date-modified: 2020-06-04
+date-modified: 2020-09-27
 excerpt_separator: <!--more-->
 categories: [ "Software development" ]
 tags: [ "Travis CI", "ESP-IDF" ]
@@ -24,9 +24,105 @@ That was the procedure that I have used to build the following `.travis.yml` fil
 - if the build is successful the content of the **after_success** section is executed.
 - in the **branches** section the build is restricted to the `master` branch only.
 
-Check out the [Releases](https://github.com/espressif/esp-idf/releases) page to find current Long Time Support and stable releases.
+## .travis.yml for ESP-IDF v4.1
 
-## .travis.yml for ESP-IDF Long Term Support release v3.3.2 (as of 2020.06.04)
+```yaml
+# Travis CI integration file for esp-idf version v4.1
+
+os: linux
+dist: focal
+language: shell
+
+addons:
+  apt:
+    packages:
+    - git
+    - wget
+    - flex
+    - bison
+    - gperf
+    - python3
+    - python3-pip
+    - python3-setuptools
+    - python-is-python3
+    - cmake
+    - ninja-build
+    - ccache
+    - libffi-dev
+    - libssl-dev
+
+install:
+  - mkdir ~/esp
+  - cd ~/esp
+  - git clone -b v4.1 --recursive https://github.com/espressif/esp-idf.git
+  - cd ~/esp/esp-idf
+  - ./install.sh
+  - . ~/esp/esp-idf/export.sh
+
+script:
+  - cd $TRAVIS_BUILD_DIR/example
+  - idf.py reconfigure
+  - idf.py app
+
+after_success:
+  - cd $TRAVIS_BUILD_DIR/example
+  - idf.py size
+
+branches:
+  only:
+  - master
+```
+
+## .travis.yml for ESP-IDF v4.0.1
+
+```yaml
+# Travis CI integration file for ESP-IDF v4.0.1 release
+
+os: linux
+dist: xenial
+language: shell
+
+addons:
+  apt:
+    packages:
+    - git
+    - wget
+    - libncurses-dev
+    - flex
+    - bison
+    - gperf
+    - python
+    - python-pip
+    - python-setuptools
+    - cmake
+    - ninja-build
+    - ccache
+    - libffi-dev
+    - libssl-dev
+
+install:
+  - mkdir ~/esp
+  - cd ~/esp
+  - git clone -b v4.0.1 --recursive https://github.com/espressif/esp-idf.git
+  - cd ~/esp/esp-idf
+  - ./install.sh
+  - . ~/esp/esp-idf/export.sh
+
+script:
+  - cd $TRAVIS_BUILD_DIR/example
+  - idf.py reconfigure
+  - idf.py app
+
+after_success:
+  - cd $TRAVIS_BUILD_DIR/example
+  - idf.py size
+
+branches:
+  only:
+  - master
+```
+
+## .travis.yml for ESP-IDF v3.3.2
 
 ```yaml
 # Travis CI integration file for ESP-IDF v3.3.2
@@ -67,55 +163,6 @@ install:
   - export IDF_PATH=~/esp/esp-idf
   - export PATH="$IDF_PATH/tools:$PATH"
   - python -m pip install --user -r $IDF_PATH/requirements.txt
-
-script:
-  - cd $TRAVIS_BUILD_DIR/example
-  - idf.py reconfigure
-  - idf.py app
-
-after_success:
-  - cd $TRAVIS_BUILD_DIR/example
-  - idf.py size
-
-branches:
-  only:
-  - master
-```
-
-## .travis.yml for ESP-IDF stable v4.0.1 (as of 2020-06-04)
-
-```yaml
-# Travis CI integration file for ESP-IDF v4.0.1 release
-
-os: linux
-dist: xenial
-language: shell
-
-addons:
-  apt:
-    packages:
-    - git
-    - wget
-    - libncurses-dev
-    - flex
-    - bison
-    - gperf
-    - python
-    - python-pip
-    - python-setuptools
-    - cmake
-    - ninja-build
-    - ccache
-    - libffi-dev
-    - libssl-dev
-
-install:
-  - mkdir ~/esp
-  - cd ~/esp
-  - git clone -b v4.0.1 --recursive https://github.com/espressif/esp-idf.git
-  - cd ~/esp/esp-idf
-  - ./install.sh
-  - . ~/esp/esp-idf/export.sh
 
 script:
   - cd $TRAVIS_BUILD_DIR/example
