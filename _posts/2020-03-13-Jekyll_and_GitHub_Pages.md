@@ -3,7 +3,7 @@ layout: post
 title: "Using Jekyll and GitHub Pages"
 description: "Install Jekyll, creating a Jekyll site and a GitHub Pages site"
 image: /assets/img/Jekyll_and_GitHub_Pages.png
-date-modified: 2020-06-03
+date-modified: 2020-09-27
 categories: [ "Web development" ]
 tags: [ "Jekyll", "GitHub Pages" ]
 ---
@@ -105,3 +105,7 @@ bundle config set path 'vendor/bundle'
 The setting is stored in the `~/.bundle/config` file.
 
 To see all settings use `bundle config list` command.
+
+## Update the gems
+
+Go to your site's directory where `Gemfile` is located and execute `bundle update` command.

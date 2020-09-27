@@ -3,7 +3,7 @@ layout: post
 title: "Build a GitHub Pages site with simple-purple-theme"
 description: "Build a GitHub Pages site using simple-purple-theme as a remote theme"
 image: /assets/img/GitHub_Pages_site.md
-# date-modified: 2020-06-04
+date-modified: 2020-09-27
 categories: [ "Web development" ]
 tags: [ "Jekyll", "GitHub Pages", "simple-purple-theme" ]
 ---
@@ -49,3 +49,7 @@ The path is declared in `_config.yml`. To change it:
 
 - **for root path, comment** the line starting with `baseurl:`
 - for other path change the value of `baseurl:`
+
+## Update the gems
+
+Go to your site's directory where `Gemfile` is located and execute `bundle update` command.
