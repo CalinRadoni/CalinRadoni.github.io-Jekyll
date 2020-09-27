@@ -1,4 +1,6 @@
 posts:
+  - name: "ESP-IDF development"
+    file: pages/200927-esp-idf-development.html
   - name: "Embedded website workflow - bash"
     file: pages/200913-embedded-website-bash.html
   - name: "Non-root access for ST-LINK and USB-to-serial devices"
