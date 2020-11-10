@@ -20,7 +20,7 @@ copyright-text: "2020"
 # set the date format to ISO8601. See https://shopify.github.io/liquid/filters/date/ for other formats
 date-format: "%F"
 
-remote_theme: "CalinRadoni/simple-purple-theme"
+remote_theme: "CalinRadoni/simple-purple-theme@main"
 skin: purple
 # skin: blue
 
