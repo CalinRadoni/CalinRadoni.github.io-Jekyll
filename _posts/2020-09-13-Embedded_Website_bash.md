@@ -54,7 +54,9 @@ To upgrade Node.js I have changed in `/etc/apt/sources.list.d/nodesource.list` t
 
 ```sh
 npm cache clean -f
-sudo apt update && sudo apt upgrade
+sudo apt remove -y nodejs
+sudo rm -rf /usr/lib/node_modules/npm
+sudo apt update && sudo apt install -y nodejs
 ```
 
 ## How it works
