@@ -3,7 +3,7 @@ layout: post
 title: "Embedded website workflow - bash"
 description: "Workflow to embed the website in firmware - bash"
 #image: /assets/img/.png
-date-modified: 2020-11-22
+date-modified: 2020-12-30
 categories: [ "Web development" ]
 tags: [ "npm", "Firmware" ]
 ---
@@ -82,6 +82,7 @@ The workflow:
 - minimize `tmp/script.js` if it runs in *production* mode
 - all `*.css` files are concatenated, `main.css` will be the last one, and the result will be in `tmp/style.css`
 - minimize `tmp/style.css` if it runs in *production* mode
+- copy the `ico`, `png` and `jpg` images in the `web` directory
 - includes the content of `tmp/script.js` and `tmp/style.css` in `src/index.html` and generates `web/index.html`
 - in *production* mode the resulting `html` file is minimized and compressed
 
@@ -122,16 +123,17 @@ Create the `.gitignore` file:
 # from the web directory, only the index.html.gz is needed
 /web/*
 !/web/index.html.gz
+!/web/favicon.ico
 ```
 
 Create a `package.json` file like this one:
 
 ```json
 {
-  "name": "pax-LampD1",
+  "name": "example-web-ui",
   "version": "1.1.0",
-  "description": "Builder for the web site embedded in the firmware of the pax-LampD1 device",
-  "homepage": "https://github.com/CalinRadoni/pax-LampD1",
+  "description": "Builder for an example web site embedded in the firmware of a device",
+  "homepage": "https://calinradoni.github.io/pages/200913-embedded-website-bash.html",
   "private": true,
   "keywords": [],
   "author": {
@@ -141,11 +143,11 @@ Create a `package.json` file like this one:
   "license": "GPL-3.0-only",
   "repository": {
     "type": "git",
-    "url": "https://github.com/CalinRadoni/pax-LampD1.git",
-    "directory": "SW/html"
+    "url": "https://github.com/CalinRadoni/ESP32BoardManager.git",
+    "directory": "example/html"
   },
   "scripts": {
-    "test": "echo Use the build script build.sh or 'build' and 'build-prod' commands",
+    "test": "echo Use the build script, build.sh, or 'build' and 'build-prod' commands",
     "build": "./build.sh",
     "build-prod": "./build.sh -pk"
   },
@@ -159,7 +161,7 @@ Create a `package.json` file like this one:
     "inline-source": "^7.2.0",
     "inline-source-cli": "^2.0.0",
     "jshint": "^2.12.0",
-    "terser": "^5.3.1"
+    "terser": "^5.3.7"
   },
   "dependencies": {}
 }
@@ -173,7 +175,7 @@ Create the build script, `build.sh` :
 set -e
 
 script_name="HTML Builder"
-script_version="1.4.0"
+script_version="1.5.0"
 
 tmpDir="tmp"
 webDir="web"
@@ -223,7 +225,7 @@ function NodeHelp() {
 }
 
 function BuildJS () {
-  find src -maxdepth 1 -type f -name *.js ! -name main.js -exec cat {} + > ./${tmpDir}/script.js
+  find src -maxdepth 1 -type f -name '*.js' ! -name main.js -exec cat {} + > ./${tmpDir}/script.js
   cat src/main.js >> ./${tmpDir}/script.js
 
   ./node_modules/.bin/jshint ./${tmpDir}/script.js
@@ -235,13 +237,17 @@ function MinimizeJS () {
 }
 
 function BuildCSS () {
-  find src -maxdepth 1 -type f -name *.css ! -name main.css -exec cat {} + > ./${tmpDir}/style.css
+  find src -maxdepth 1 -type f -name '*.css' ! -name main.css -exec cat {} + > ./${tmpDir}/style.css
   cat src/main.css >> ./${tmpDir}/style.css
 }
 
 function MinimizeCSS () {
   mv ./${tmpDir}/style.css ./${tmpDir}/style_src.css
   ./node_modules/.bin/cleancss -o ./${tmpDir}/style.css ./${tmpDir}/style_src.css
+}
+
+function CopyImages () {
+  find src -maxdepth 1 -type f \( -name '*.ico' -o -name '*.png' -o -name '*.jpg' \) -exec cp {} ./${webDir}/ \;
 }
 
 function BuildHTML () {
@@ -298,10 +304,12 @@ if [[ $production_mode -eq 1 ]]; then
   MinimizeJS
   BuildCSS
   MinimizeCSS
+  CopyImages
   BuildHTML_Prod
 else
   BuildJS
   BuildCSS
+  CopyImages
   BuildHTML
 fi
 
