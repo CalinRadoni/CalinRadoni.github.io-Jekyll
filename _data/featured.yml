@@ -7,8 +7,6 @@ posts:
     file: pages/200616-non-root-access-usb.html
   - name: "Build a GitHub Pages site with simple-purple-theme"
     file: /pages/200604-github-pages-site.html
-  - name: "Travis CI and ESP-IDF"
-    file: /pages/200203-travisci-esp-idf.html
 
 code:
   - name: "pax-LampD1"
