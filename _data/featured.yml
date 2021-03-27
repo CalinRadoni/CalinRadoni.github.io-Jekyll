@@ -1,4 +1,6 @@
 posts:
+  - name: "Manage Podman root and rootless containers and pods with Systemd"
+    file: pages/210327-podman-systemd.html
   - name: "ESP-IDF development"
     file: pages/200927-esp-idf-development.html
   - name: "Embedded website workflow - bash"

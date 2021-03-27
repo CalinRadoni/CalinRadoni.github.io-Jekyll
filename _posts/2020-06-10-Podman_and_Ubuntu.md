@@ -3,10 +3,12 @@ layout: post
 title: "Podman and Ubuntu 20.04 LTS"
 description: "Installation and basic usage of Podman in Ubuntu 20.04 LTS"
 #image: /assets/img/.png
-#date-modified: 2020-mm-dd
+date-modified: 2021-03-26
 categories: [ "System Administration" ]
 tags: [ "Podman", "Ubuntu", "Buildah", "Docker" ]
 ---
+
+I have built a new version of this document for rootless containers and pods at [Manage Podman root and rootless containers and pods with Systemd]({% post_url 2021-03-27-Podman_Systemd %}) but this document still have useful information.
 
 *optional:* Uninstall old Docker versions, if any:
 
@@ -63,7 +65,8 @@ podman push myfedora docker-daemon:myfedora:latest
 - `man podman` and `man podman-<subcommand>`
 
 - `podman search <search_term>`
-- `podman search httpd --filter=is-official`
+- `podman search --filter=is-official debian`
+- `podman search --list-tags docker.io/library/debian`
 - `podman pull registry.fedoraproject.org/f29/httpd`
 - `podman images`
 
