@@ -51,13 +51,6 @@ image-d: "The text simple purple theme written in purple over a dark gray backgr
         </nav>
       </div>
       {%- endif %}
-    </div>
-  </div>
-</section>
-
-<section class="row-vh limited-width padding-1h">
-  <div class="card-hv card-m1vh border-hover-color">
-    <div class="body stretched padding-1">
       {%- if site.data.featured.posts[0] %}
       <div class="card-row">
         <h3>Featured <a href="{{ site.baseurl }}{% link pages/index.html %}">Posts</a>:</h3>
@@ -70,6 +63,13 @@ image-d: "The text simple purple theme written in purple over a dark gray backgr
         </nav>
       </div>
       {%- endif %}
+    </div>
+  </div>
+</section>
+
+<section class="row-vh limited-width padding-1h">
+  <div class="card-hv card-m1vh border-hover-color">
+    <div class="body stretched padding-1">
       <div class="card-row">
         <h3>Tag cloud</h3>
         {% include tag-cloud-number.html %}
