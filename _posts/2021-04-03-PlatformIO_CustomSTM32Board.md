@@ -177,7 +177,7 @@ The `ldscript.ld` is processor dependent and can be generated with  [STM32CubeMX
 
 For [pax-BB5](https://github.com/CalinRadoni/pax-BB5) here are the results of `pio run` for the blinky test project:
 
-{: .text-right}
+{: .hcdr}
 | | Arduino | CMSIS | STM32Cube | LibOpenCM3 |
 | --- | --- | --- | --- | --- |
 | **RAM usage:** | 920 bytes | 28 bytes | 44 bytes | 0 bytes |
