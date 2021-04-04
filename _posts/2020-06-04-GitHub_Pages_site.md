@@ -3,7 +3,7 @@ layout: post
 title: "Build a GitHub Pages site with simple-purple-theme"
 description: "Build a GitHub Pages site using simple-purple-theme as a remote theme"
 image: /assets/img/GitHub_Pages_site.md
-date-modified: 2020-09-27
+date-modified: 2021-04-04
 categories: [ "Web development" ]
 tags: [ "Jekyll", "GitHub Pages", "simple-purple-theme" ]
 ---
@@ -24,6 +24,7 @@ git clone https://github.com/CalinRadoni/simple-purple-theme.git
 cp simple-purple-theme/demo/Gemfile .
 cp simple-purple-theme/demo/_config.yml .
 cp simple-purple-theme/demo/index.html .
+cp simple-purple-theme/demo/example-gitignore .gitignore
 mkdir -p assets/img
 cp simple-purple-theme/demo/logo.svg assets/img/
 cp -r simple-purple-theme/docs/pages .
