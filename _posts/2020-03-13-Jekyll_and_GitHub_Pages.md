@@ -3,32 +3,19 @@ layout: post
 title: "Using Jekyll and GitHub Pages"
 description: "Install Jekyll, creating a Jekyll site and a GitHub Pages site"
 image: /assets/img/Jekyll_and_GitHub_Pages.png
-date-modified: 2020-09-27
+date-modified: 2021-10-24
 categories: [ "Web development" ]
 tags: [ "Jekyll", "GitHub Pages" ]
 ---
 
 ## Jekyll instalation
 
-[Jekyll](https://jekyllrb.com/) needs [Ruby](https://www.ruby-lang.org/en/) and the [documentation from HitHub Pages](https://help.github.com/en/github/working-with-github-pages/testing-your-github-pages-site-locally-with-jekyll) also recommends [Bundler](https://bundler.io/).
+[Jekyll](https://jekyllrb.com/) needs [Ruby](https://www.ruby-lang.org/en/) and the [documentation from GitHub Pages](https://help.github.com/en/github/working-with-github-pages/testing-your-github-pages-site-locally-with-jekyll) also recommends [Bundler](https://bundler.io/).
 
-To install those on Debian / Ubuntu use this script:
+To install those on Ubuntu 20.04 execute:
 
 ```sh
-#!/bin/bash
-set -e
-
-sudo apt update && sudo apt install -y ruby-full build-essential zlib1g-dev
-
-mkdir ~/gems
-export GEM_HOME=$HOME/gems
-export PATH=$HOME/gems/bin:$PATH
-echo >> ~/.bashrc
-echo '# Ruby gems paths' >> ~/.bashrc
-echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
-echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
-
-gem install jekyll bundler
+sudo apt update && sudo apt install -y ruby-full ruby-bundler build-essential zlib1g-dev
 ```
 
 ## Create a Jekyll site
