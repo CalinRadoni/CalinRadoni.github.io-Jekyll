@@ -3,7 +3,7 @@ layout: post
 title: "Custom STM32 board for PlatformIO and Arduino, CMSIS, STM32Cube and LibOpenCM3"
 description: "Workflow and configuration files for custom STM32 board to be used with PlatformIO and Arduino, CMSIS, STM32Cube and LibOpenCM3 frameworks"
 #image: /assets/img/.png
-#date-modified: 2020-mm-dd
+date-modified: 2022-02-09
 excerpt_separator: <!--more-->
 categories: [ "Software development" ]
 tags: [ "PlatformIO", "Custom board", "STM32", "Arduino", "CMSIS", "STM32Cube", "LibOpenCM3" ]
@@ -19,8 +19,10 @@ Example working configuration for this document:
 
 - in the project's root directory create two directories, `boards` and `variants`.
 - put `pax_bb5.json` in `boards` directory
-- copy the `PAX_BB5` directory in `variants` directory. `PAX_BB5` contains the custom definitions for this Arduino variant and should have these files: `variant.h`, `variant.cpp`, `PinNamesVar.h`, `PeripheralPins.c` and `ldscript.ld`.
+- copy the `PAX_BB5` directory in `variants` directory. `PAX_BB5` contains the custom definitions for this Arduino variant and should have these files: `variant_PAX_BB5.h`, `variant_PAX_BB5.cpp`, `PinNamesVar.h`, `PeripheralPins.c` and `ldscript.ld`.
 - configure PlatformIO to use the custom board. Basically set the `board`, `board_build.variant` and `board_build.variants_dir` for this configuration (see included `platformio.ini` file).
+
+**Note:** At least since `ST STM32 (15.2.0)` with `framework-arduinoststm32 4.20100.211028 (2.1.0)` the *variant* files must be named `variant_`*board_name* and not `variant` as in older versions.
 
 ## platformio.ini
 
@@ -123,8 +125,8 @@ For all STM32 MCU, these files:
 
 - `PeripheralPins.c`
 - `PinNamesVar.h`
-- `variant.cpp`
-- `variant.h`
+- `variant_PAX_BB5.cpp`
+- `variant_PAX_BB5.h`
 
 can be taken from [Arduino_Tools/genpinmap/Arduino](https://github.com/stm32duino/Arduino_Tools/tree/master/src/genpinmap/Arduino) or can be generated with [genpinmap](https://github.com/stm32duino/wiki/wiki/genpinmap).
 
@@ -132,11 +134,11 @@ can be taken from [Arduino_Tools/genpinmap/Arduino](https://github.com/stm32duin
 
 Those files should be analyzed and modified for your board.
 
-#### variant.h
+#### variant_PAX_BB5.h
 
 I have `defined` all the pins from D0 - D22 and changed all other `defines` for the board.
 
-#### variant.cpp
+#### variant_PAX_BB5.cpp
 
 **1:** `digitalPin` array declares all digital pins, in order, from D0 to D22
 
@@ -167,7 +169,7 @@ I have removed the definitions for alternative pins.
 
 ### System Clock configuration
 
-`void SystemClock_Config(void)` from `variant.cpp` must be defined and can be generated with [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html) application.
+`void SystemClock_Config(void)` from `variant_PAX_BB5.cpp` must be defined and can be generated with [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html) application.
 
 ### Linker script
 
