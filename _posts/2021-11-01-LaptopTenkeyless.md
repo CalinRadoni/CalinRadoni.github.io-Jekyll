@@ -5,7 +5,7 @@ description: "Custom keyboard layout for a 'standard' laptop keyboard, Tenkeyles
 #image: /assets/img/.png
 #date-modified: 2020-mm-dd
 excerpt_separator: <!--more-->
-categories: [ " System Administration" ]
+categories: [ "System Administration" ]
 tags: [ "Custom keyboard layout", "Tenkeyless", "Gnome", "Ubuntu", "Ansible" ]
 ---
 
