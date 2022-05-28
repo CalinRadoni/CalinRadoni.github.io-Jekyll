@@ -6,7 +6,7 @@ description: "Flash Sonoff TX (and other ESP8266/ESP32 based devices) with ESPHo
 #date-modified: 2021-mm-dd
 excerpt_separator: <!--more-->
 categories: [ "Automation" ]
-tags: [ "ESPHome", "Sonoff", "ESP8266", "podman", "docker" ]
+tags: [ "ESPHome", "Sonoff", "ESP8266", "Podman", "Docker" ]
 ---
 
 I have used the official [ESPHome container](https://hub.docker.com/r/esphome/esphome) to flash some Sonoff TX switches.
