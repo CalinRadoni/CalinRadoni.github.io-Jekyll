@@ -3,7 +3,7 @@ layout: post
 title: "Cisco ASA backup script"
 description: "Backup multiple Cisco ASA using SSH and a bash script"
 #image: /assets/img/.png
-#date-modified: 2020-mm-dd
+date-modified: 2022-09-13
 excerpt_separator: <!--more-->
 categories: [ "Networking" ]
 tags: [ "Cisco ASA", "backup", "SSH", "bash" ]
@@ -12,6 +12,8 @@ tags: [ "Cisco ASA", "backup", "SSH", "bash" ]
 The script creates a directory named `ASA-yyyymmdd` and saves the running configuration of each ASA device in a file called `deviceName-yymmdd-running` in that directory.
 
 The script can be easily modified to save the startup config instead.
+
+**Warning:** This script does not work for large configuration files. Cisco ASA will close the connection before the whole data is sent !
 
 ## Prerequisite
 
