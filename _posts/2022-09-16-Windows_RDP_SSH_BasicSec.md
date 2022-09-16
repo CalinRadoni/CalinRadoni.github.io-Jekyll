@@ -78,7 +78,7 @@ For servers:
 
 Make sure that you have at least some rules for Ping and RDP. Check the following code if want to add rules with PowerShell (replace `192.168.5.3` before use !):
 
-```ps1
+```powershell
 $mngStations = @("192.168.5.3")
 $icmpAccess = @("LocalSubnet", "192.168.5.3")
 
@@ -98,7 +98,7 @@ Now delete any other Inbound and Outbound rule.
 
 ### Windows File server example
 
-```ps1
+```powershell
 $fsClients = @("LocalSubnet")
 
 New-NetFirewallRule -DisplayName 'StartRule-FS' -Enabled True -Direction Inbound -Action Allow -Protocol TCP -LocalPort 445 -RemoteAddress $fsClients
@@ -106,7 +106,7 @@ New-NetFirewallRule -DisplayName 'StartRule-FS' -Enabled True -Direction Inbound
 
 ### Windows HTTP / HTTPS server example
 
-```ps1
+```powershell
 $httpClients = @("LocalSubnet")
 
 # for HTTP
@@ -137,7 +137,7 @@ Not in the scope of this guide but maybe Microsoft's `Local Administrator Passwo
 
 ### OpenSSH installation
 
-```ps1
+```powershell
 # install the client and the server
 Get-WindowsCapability -Online | Where-Object Name -like 'OpenSSH.*' |
 ForEach-Object -Process {
@@ -169,7 +169,7 @@ cat my_new_ed25519_key.pub
 
 To add the key:
 
-```ps1
+```powershell
 # set the value from my_new_ed25519_key.pub
 $authorizedKey = "ssh-ed25519 AAA..............................................................xyz This is my new shiny key"
 
@@ -184,7 +184,7 @@ icacls.exe "$env:ProgramData\ssh\administrators_authorized_keys" /inheritance:r 
 
 To see if the algorithms from the next `conf` file are supported use:
 
-```ps1
+```powershell
 ssh -Q cipher
 ssh -Q mac
 ssh -Q kex
@@ -205,7 +205,7 @@ MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com
 
 ### Regenerate host keys
 
-```ps1
+```powershell
 # delete actual keys
 Remove-Item -Path $env:ProgramData\ssh\ssh_host_*_key;
 Remove-Item -Path $env:ProgramData\ssh\ssh_host_*_key.pub
@@ -216,7 +216,7 @@ Restart-Service -Name sshd
 
 To display the SHA256 fingerprint for the new hosts's ed25519 key use:
 
-```ps1
+```powershell
 ssh-keygen -lf $env:ProgramData\ssh\ssh_host_ed25519_key
 ```
 
