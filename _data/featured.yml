@@ -1,4 +1,6 @@
 posts:
+  - name: "Basic security for Windows including RDP and SSH"
+    file: pages/220916-windows-rdp-ssh-basicsec.html
   - name: "Containerized Apache, PHP and MariaDB development environment"
     file: pages/220529-containerized-apache-php-mariadb-dev.html
   - name: "Custom STM32 board for PlatformIO and Arduino, CMSIS, STM32Cube and LibOpenCM3"
