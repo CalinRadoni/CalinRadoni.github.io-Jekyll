@@ -192,7 +192,7 @@ ssh -Q kex
 
 Edit `%programdata%\ssh\sshd_config` and add these **to the beginning** of the file:
 
-```conf
+```ssh
 Protocol 2
 PubkeyAuthentication yes
 PasswordAuthentication no
@@ -238,7 +238,7 @@ ssh localAdmin@ip_of_the_server -i my_new_ed25519_key
 
 If you never connected before to this host you will receive a warning like this:
 
-```txt
+```plaintext
 The authenticity of host '..............' can't be established.
 ED25519 key fingerprint is SHA256:Aaaa........................................
 Are you sure you want to continue connecting (yes/no/[fingerprint])? 
@@ -251,7 +251,7 @@ If is the same type `yes`.
 
 If you have regenerated the host keys you will receive a warning like this:
 
-```txt
+```plaintext
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -287,7 +287,7 @@ To connect to the server with tunneled RDP use `127.0.0.1:9999` as your destinat
 
 On the remote server, executing `netstat -bn` will show the connections:
 
-```txt
+```plaintext
 TCP  127.0.0.1:3389     127.0.0.1:49746             ESTABLISHED
 TermService
 [svchost.exe]
@@ -311,7 +311,7 @@ GPOs can be applied to following Active Directory containers: site, domain, orga
 
 Create a GPO for access. Under `Computer Configuration/ Policies` make these settings:
 
-```yaml
+```plaintext
 Windows Settings
     Security Settings
         Local Policies / User Rights Assignment
@@ -339,7 +339,7 @@ You should create GPOs with firewall rules for every server group - grouping bas
 
 The basic skeleton is this:
 
-```yml
+```plaintext
 Windows Settings
     Security Settings
         Windows Firewall with Advanced Security
