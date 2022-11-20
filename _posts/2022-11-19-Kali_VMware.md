@@ -62,13 +62,13 @@ Make sure `postgresql` is running on port 5432, check the file `/etc/postgresql/
 
 `kali-linux-everything` may be too much, there is a complete list of [Kali Linux Metapackages](https://www.kali.org/docs/general-use/metapackages/) but I have used only some of those :
 
-> `kali-tools-vulnerability`: Vulnerability assessments tools
-> `kali-tools-web`: Designed doing web applications attacks
-> `kali-tools-database`: Based around any database attacks
-> `kali-tools-wireless`: All tools based around Wireless protocols – 802.11, Bluetooth, RFID & SDR
-> `kali-tools-exploitation`: Commonly used for doing exploitation
-> `kali-tools-sniffing-spoofing`: Any tools meant for sniffing & spoofing
-> `kali-tools-post-exploitation`: Techniques for post exploitation stage
+- `kali-tools-vulnerability`: Vulnerability assessments tools
+- `kali-tools-web`: Designed doing web applications attacks
+- `kali-tools-database`: Based around any database attacks
+- `kali-tools-wireless`: All tools based around Wireless protocols – 802.11, Bluetooth, RFID & SDR
+- `kali-tools-exploitation`: Commonly used for doing exploitation
+- `kali-tools-sniffing-spoofing`: Any tools meant for sniffing & spoofing
+- `kali-tools-post-exploitation`: Techniques for post exploitation stage
 
 To install them use:
 
