@@ -1,4 +1,8 @@
 posts:
+  - name: Metasploit Basics
+    file: pages/221119-metasploit-basics.html
+  - name: Kali Linux on VMware Workstation
+    file: pages/221119-kali-vmware.html
   - name: "Basic security for Windows including RDP and SSH"
     file: pages/220916-windows-rdp-ssh-basicsec.html
   - name: "Containerized Apache, PHP and MariaDB development environment"
