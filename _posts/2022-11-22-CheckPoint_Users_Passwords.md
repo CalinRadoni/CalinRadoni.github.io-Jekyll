@@ -24,7 +24,7 @@ These steps are extracted from:
 - [CLI R81.10 Reference Guide](https://sc1.checkpoint.com/documents/R81.10/WebAdminGuides/EN/CP_R81.10_CLI_ReferenceGuide/Topics-CLIG/Introduction.htm)
 - [Gaia R81.10 Administration Guide](https://sc1.checkpoint.com/documents/R81.10/WebAdminGuides/EN/CP_R81.10_Gaia_AdminGuide/Default.htm)
 
-**Warning:** After adding a new account for SSH access you should enable the authentication with public keys. [CheckPoint SSH access with Public Key]({% post_url 2022-09-21-CheckPoint_SSH_Access_PK %}) post.
+**Warning:** After adding a new account for SSH access you should enable the authentication with public keys. See the [CheckPoint SSH access with Public Key]({% post_url 2022-11-22-CheckPoint_SSH_Access_PK %}) post.
 
 **Note:** This document uses:
 
