@@ -132,7 +132,9 @@ When there are no errors and warnings connect to the [web interface](https://127
 
 ## Metasploit
 
-Beside the [official documentation](https://docs.rapid7.com/metasploit/) you can also check [Metasploit Unleashed](https://www.offensive-security.com/metasploit-unleashed/) for information on using the Metasploit Framework.
+In the [Metasploit Basics]({% post_url 2022-11-19-Metasploit_Basics %}) post I have a quick start documentation for Metasploit, *From the first start to a reverse shell on a vulnerable host*.
+
+You can also check [Metasploit Unleashed](https://www.offensive-security.com/metasploit-unleashed/) and the [official documentation](https://docs.rapid7.com/metasploit/) for information on using the Metasploit Framework.
 
 For a target to practice Metasploit Usage framework use [Metasploitable 2 from SourceForge](http://sourceforge.net/projects/metasploitable/files/Metasploitable2/). The default login and password is `msfadmin:msfadmin` and here is a [Metasploitable 2 Exploitability Guide](https://community.rapid7.com/docs/DOC-1875) on the Rapid7 website.
 
