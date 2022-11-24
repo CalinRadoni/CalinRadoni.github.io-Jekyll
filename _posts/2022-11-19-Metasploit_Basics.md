@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Metasploit Basics"
-description: "Form the first start to a reverse shell on a vulnerable host"
+description: "From the first start to a reverse shell on a vulnerable host"
 #image: /assets/img/.png
 #date-modified: 2020-mm-dd
 excerpt_separator: <!--more-->
