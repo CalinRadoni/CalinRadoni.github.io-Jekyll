@@ -101,7 +101,7 @@ add administrator username the_new_admin permission read-write password-hash '$1
 
 Test that you are able to connect with the new account.
 
-If you want to login directly to expert mode, *actually to switch to the bash shell*:
+If you want to login directly to expert mode, *actually to switch to the Bash shell*:
 
 - login as the new user
 - execute `expert` command to go into expert mode
@@ -129,7 +129,7 @@ set user the_new_admin password-hash '$6$abc......'
 add rba user the_new_admin roles adminRole
 add rba user the_new_admin access-mechanisms CLI,Web-UI,Gaia-API
 
-# (optional) set the shell to bash
+# (optional) set the shell to Bash
 set user the_new_admin shell /bin/bash
 ```
 

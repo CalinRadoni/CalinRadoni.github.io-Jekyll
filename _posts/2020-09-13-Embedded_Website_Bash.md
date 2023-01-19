@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Embedded website workflow - bash"
-description: "Workflow to embed the website in firmware - bash"
+title: "Embedded website workflow - Bash"
+description: "Workflow to embed the website in firmware - Bash"
 #image: /assets/img/.png
 date-modified: 2020-12-30
 categories: [ "Web development" ]
@@ -11,7 +11,7 @@ tags: [ "npm", "Firmware" ]
 The purpose of this post is to show another method to creates minimized and compressed
 HTML files, with CSS and scripts included, from separate files.
 
-This method uses a bash script, `Node.js`, `npm`, `npx` and javascript packages from [npm Repository](https://www.npmjs.com/).
+This method uses a Bash script, `Node.js`, `npm`, `npx` and javascript packages from [npm Repository](https://www.npmjs.com/).
 The previous method is in [Embedded website workflow - Gulp]({% post_url 2020-09-01-Embedded_Website %})
 
 Embedded site are useful for sites embedded in firmware. Embedding web files in firmware generally have some benefits like:

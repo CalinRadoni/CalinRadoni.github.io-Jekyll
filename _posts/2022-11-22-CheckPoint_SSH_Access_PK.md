@@ -88,7 +88,7 @@ From R81.10 you can also use in Clish (see `sk179517`):
 
 ## Copy a key to an appliance
 
-You can change the content of the file on the appliance but **if you use a user with the bash shell** this should work:
+You can change the content of the file on the appliance but **if you use a user with the Bash shell** this should work:
 
 ```sh
 cat ~/keys/ckpRSAAccessKey.pub | ssh user@IP_Address_of_CheckPoint -T "cat >> /storage/test_file"
