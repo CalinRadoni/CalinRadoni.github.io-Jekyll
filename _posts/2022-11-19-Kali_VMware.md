@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Kali Linux on VMware Workstation"
-description: "Install Kali Linux 2022 with GVM (openVAS), Metasploit and Nessus on VMWare Workstation Player"
+description: "Install Kali Linux 2022 with GVM (OpenVAS), Metasploit and Nessus on VMWare Workstation Player"
 #image: /assets/img/.png
 #date-modified: 2020-mm-dd
 excerpt_separator: <!--more-->
@@ -10,6 +10,8 @@ tags: [ "Kali", "VMware", "GVM", "Metasploit", "Nessus", "OpenVAS" ]
 ---
 
 This guide installs Kali Linux 2022 as a VMware virtual machine and makes the basic configurations needed to run GVM (previously named OpenVAS), Metasploit and Nessus.
+
+**Note:** there is a more complex but most probably better guide in [Virtualized Kali Linux]({% post_url 2023-01-19-Virtual_Kali %})
 
 ## Download Kali Image
 
