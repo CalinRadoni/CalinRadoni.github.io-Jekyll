@@ -1,4 +1,6 @@
 posts:
+  - name: Bash scripting
+    file: pages/230123-bash-scripting.html
   - name: Virtualized Kali Linux
     file: pages/230119-virtual-kali.html
   - name: Metasploit Basics
