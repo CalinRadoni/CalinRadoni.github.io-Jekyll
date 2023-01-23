@@ -11,15 +11,21 @@ tags: [ "Bash", "Bash options", "Bash arguments", "Bash parameters", "getopts"]
 
 `getopts` parses command-line arguments passed to a script. It is defined in POSIX, is a Bash builtin and works with other shells too.<!--more-->
 
-## Positional parameters
+It is usable for simple scripts but:
 
-... are not what really this article is about but I have to mention positional parameters because those may be also used even if/when using `getopts`. See the included script.
+- for a **more flexible** implementation see [Loop through arguments and options in your Bash scripts]({% post_url 2023-01-23-Bash_Loop_Options_Arguments %})
+- the **practical** implementation that I use now is without `getopts` and is presented in [Bash scripting]({% post_url 2023-01-23-Bash_Scripting %}) article
 
-`$#` is a special variable that contains the number of arguments passed to the script.
+`getopts` allow only single-letter options and performs option splitting (-hv will be processed as -h -v).
 
-There are 10 positional parameters, accessible with `$0` to `$9`. `$0` is reserved and contains the name of the running script.
+## Short note about positional parameters
 
-Use `"$@"` (*keep the quotes*) to get all passed arguments as separate words.
+- `$#` is a special variable that contains the number of arguments passed to the script.
+- Positional parameter N may be referenced as `${N}`, or as `$N` when `N` consists of a single digit.
+`$0` is reserved and expands to the name of the shell or shell script.
+- Use `"$@"` (*keep the quotes*) to get all passed arguments as separate words.
+
+See [Shell Parameters](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameters.html) for more information.
 
 ## Options
 
@@ -39,47 +45,50 @@ After all the options are processed, `OPTIND` will be set to the index of the fi
 ```sh
 #!/bin/bash
 
-flag_a=
-flag_b=
-arg_b=
+declare -i flag_a=0
+declare -i flag_b=0
+declare arg_b=''
+
+OPTIND=1
 
 while getopts ":ab:c" option; do
     case $option in
         a)  # a option received
-            flag_a=1;;
+            ((flag_a++));;
         b)  # b option received
-            flag_b=1
+            ((flag_b++))
             arg_b="$OPTARG"
             ;;
-        \?) printf "'%s' is an invalid option!\n" "$OPTARG"
+        \?) printf '[%s] is an invalid option!\n' "$OPTARG"
             exit 1;;
-        :)  printf "Argument needed for '%s'!\n" "$OPTARG"
+        :)  printf '[%s] needs an argument!\n' "$OPTARG"
             exit 1;;
-        *) # This is the default processing case
-            printf "'%s' is not processed!\n" "$option"
+        *) # this is the default processing case
+            printf '[%s] is not processed!\n' "$option"
             exit 1;;
     esac
 done
 
-if [[ -n "$flag_a" ]]; then
-    printf "Received flag '-a'\n"
+if ((flag_a > 0)); then
+    printf 'Received flag [-a]\n'
 fi
-if [[ -n "$flag_b" ]]; then
-    printf "The argument for '-b' option is %s\n" "$arg_b"
+if ((flag_b > 0)); then
+    printf 'The argument for [-b] option is %s\n' "$arg_b"
 fi
 
-shift $((OPTIND - 1))
-if [[ "$#" -gt 0 ]]; then
-    printf "The are %d remaining arguments:\n" "$#"
-    printf "%s\n" "$@"
+shift "$((OPTIND-1))"
+
+if (($# > 0)); then
+    printf 'The are %d remaining arguments:\n' "$#"
+    printf '%s\n' "$@"
 fi
 ```
 
 When called with `-a -b bbb ccc ddd` options and arguments string, the previous script will print:
 
 ```txt
-Received flag '-a'
-The argument for '-b' option is bbb
+Received flag [-a]
+The argument for [-b] option is bbb
 The are 2 remaining arguments:
 ccc
 ddd
@@ -87,7 +96,9 @@ ddd
 
 ## Links
 
+- [Bash Reference Manual](https://www.gnu.org/software/bash/manual/bash.html)
 - [POSIX Programmer's Manual - getopts](https://man7.org/linux/man-pages/man1/getopts.1p.html)
+- [BashFAQ/035](https://mywiki.wooledge.org/BashFAQ/035)
 - search for `getopts` in [Advanced Bash-Scripting Guide - Internal Commands and Builtins](https://tldp.org/LDP/abs/html/internal.html)
 - [Bash Guide for Beginners - Using case statements](https://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_03.html)
 - [Bash Guide for Beginners - The shift built-in](https://tldp.org/LDP/Bash-Beginners-Guide/html/sect_09_07.html)
