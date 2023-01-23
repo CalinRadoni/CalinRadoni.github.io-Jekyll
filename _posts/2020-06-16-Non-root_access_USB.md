@@ -5,7 +5,7 @@ description: "Using a user account to access ST-LINK programming interfaces, USB
 #image: /assets/img/.png
 date-modified: 2020-06-17
 categories: [ "System Administration" ]
-tags: [ "udev", "ST-LINK", "USB-to-serial", "CP2102", "CP210x" ]
+tags: [ "udev", "ST-LINK", "USB-to-serial", "CP2102" ]
 ---
 
 Accessing the ST-LINK programming interfaces, USB-to-serial converters and some other USB devices from a non-root account

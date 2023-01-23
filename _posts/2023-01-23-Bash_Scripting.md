@@ -6,7 +6,7 @@ description: "A template, some notes and links about Bash scripts"
 #date-modified: 2020-mm-dd
 excerpt_separator: <!--more-->
 categories: [ "System Administration" ]
-tags: [ "Bash", "Bash script"]
+tags: [ "Bash" ]
 ---
 
 This post contains a **practical** template script and some useful links for Bash scripts.

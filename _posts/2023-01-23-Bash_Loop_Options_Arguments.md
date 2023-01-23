@@ -6,7 +6,7 @@ description: "Write Bash scripts with long and short options and arguments and u
 #date-modified: 2020-mm-dd
 excerpt_separator: <!--more-->
 categories: [ "System Administration" ]
-tags: [ "Bash", "Bash options", "Bash arguments", "Bash parameters"]
+tags: [ "Bash", "Bash options", "Bash arguments" ]
 ---
 
 This way of handling command line options and arguments is flexible and allows processing of long options (--help) not only single-letter options (-h).<!--more-->

@@ -6,7 +6,7 @@ description: "Write Bash scripts with options and arguments and use getopts for 
 #date-modified: 2020-mm-dd
 excerpt_separator: <!--more-->
 categories: [ "System Administration" ]
-tags: [ "Bash", "Bash options", "Bash arguments", "Bash parameters", "getopts"]
+tags: [ "Bash", "Bash options", "Bash arguments", "getopts" ]
 ---
 
 `getopts` parses command-line arguments passed to a script. It is defined in POSIX, is a Bash builtin and works with other shells too.<!--more-->

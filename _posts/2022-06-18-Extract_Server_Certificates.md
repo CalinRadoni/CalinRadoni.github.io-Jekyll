@@ -6,7 +6,7 @@ description: "Extract the certificates from a HTTPS server using openssl and sed
 #date-modified: 2021-03-26
 excerpt_separator: <!--more-->
 categories: [ "System Administration" ]
-tags: [ "Certificates", "openssl", "sed", "Bash"]
+tags: [ "Certificates", "openssl", "sed" ]
 ---
 
 Here are step by step operations from displaying certificates to extract only the last one in a format compatible with a "C" program.

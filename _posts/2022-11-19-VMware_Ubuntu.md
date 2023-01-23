@@ -6,7 +6,7 @@ description: "Install VMware Workstation Player on Ubuntu LTS"
 #date-modified: 2020-mm-dd
 excerpt_separator: <!--more-->
 categories: [ "System Administration" ]
-tags: [ "VMware", "VMware Workstation", "VMware Workstation Player" ]
+tags: [ "VMware", "VMware Workstation" ]
 ---
 
 The installation should be simple but there are (solvable) problems if the host boots from UEFI with secure boot enabled.
