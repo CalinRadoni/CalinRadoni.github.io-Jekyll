@@ -14,3 +14,6 @@ vendor/
 # ignore auxiliary directories
 /.notes/
 /.images/
+
+# ignore incompleted posts
+/_posts/xxx_*
