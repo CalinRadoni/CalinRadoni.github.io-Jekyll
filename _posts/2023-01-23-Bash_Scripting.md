@@ -24,7 +24,7 @@ and my [posts related to Bash](/pages/tags.html#bash).
 #
 # Template script that handle options and arguments
 #
-# Version: 0.9.0
+# Version: 0.9.1
 # Copyright (C) 2023 Calin Radoni
 # License GNU GPLv3 (https://choosealicense.com/licenses/gpl-3.0/)
 
@@ -43,7 +43,7 @@ declare infile=''
 exit_with_message() {
     declare exit_code="${1:-1}"
     if [[ -n "$2" ]]; then
-        printf '%s\n' "$2" >&2
+        printf -- '%s\n' "$2" >&2
     fi
     if [[ "$exit_code" != +([[:digit:]]) ]]; then
         printf 'Incorrect exit code!\n' >&2
@@ -82,11 +82,11 @@ parse_options() {
                 ((verbose++));;
             -f|--file)
                 if [[ -z "$2" ]]; then
-                    exit_with_message 1 "[$1] needs an argument!\n"
+                    exit_with_message 1 "[$1] needs an argument!"
                     exit 1
                 fi
                 if [[ "$2" == '--' ]]; then
-                    exit_with_message 1 "[$1] needs an argument!\n"
+                    exit_with_message 1 "[$1] needs an argument!"
                     exit 1
                 fi
                 infile="$2"
@@ -97,7 +97,7 @@ parse_options() {
                 break
                 ;;
             -?*)
-                exit_with_message 1 "[$1] is an invalid option!\n"
+                exit_with_message 1 "[$1] is an invalid option!"
                 exit 1
                 ;;
             *)  # this is the default processing case
@@ -127,13 +127,13 @@ if [[ -n "$infile" ]]; then
 
     # test if the file is readable (use -w to test if the file is writable)
     if [[ ! -r "$infile" ]]; then
-        printf '%s is not readable !\n' "$infile" >&2
+        printf -- '%s is not readable !\n' "$infile" >&2
     fi
 fi
 
 if ((${#ARGS[@]} > 0)); then
     printf 'The are %d remaining arguments:\n' "${#ARGS[@]}"
-    printf '%s\n' "${ARGS[*]}"
+    printf -- '%s\n' "${ARGS[*]}"
 fi
 for arg in "${ARGS[@]}"; do
     printf '<%s>\n' "$arg"
