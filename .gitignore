@@ -15,5 +15,5 @@ vendor/
 /.notes/
 /.images/
 
-# ignore incompleted posts
-/_posts/xxx_*
+# ignore work-in-progress posts
+/_posts/wip_*
