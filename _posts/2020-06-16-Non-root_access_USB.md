@@ -81,6 +81,7 @@ SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3753", MODE="600"
 EOF
 
 sudo udevadm control --reload-rules
+sudo udevadm trigger
 ```
 
 ## USB-to-serial converters
@@ -144,4 +145,5 @@ SUBSYSTEMS=="usb", ATTRS{idVendor}=="0557", ATTRS{idProduct}=="2008", MODE="600"
 EOF
 
 sudo udevadm control --reload-rules
+sudo udevadm trigger
 ```
