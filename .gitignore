@@ -16,4 +16,4 @@ vendor/
 /.images/
 
 # ignore work-in-progress posts
-/_posts/wip_*
+/_posts/wip*
