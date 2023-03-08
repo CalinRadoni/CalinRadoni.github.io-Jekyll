@@ -3,7 +3,7 @@ layout: post
 title: "Ansible notes and quick start"
 description: "Practical notes for using Ansible and quick start instruction"
 #image: /assets/img/.png
-#date-modified: 2020-mm-dd
+date-modified: 2023-01-29
 excerpt_separator: <!--more-->
 categories: [ "System Administration" ]
 tags: [ "Ansible" ]
@@ -36,24 +36,24 @@ Making a Debian/Ubuntu the control node means installing Ansible:
 ```sh
 sudo apt update
 sudo apt install software-properties-common
-sudo apt install python3 python3-pip python3-venv python3-jmespath
+sudo apt install python3 python3-pip python3-venv python3-jmespath python3-psutil
 sudo add-apt-repository --yes --update ppa:ansible/ansible
-sudo apt install ansible
+sudo apt install ansible ansible-lint
 ```
 
-If a playbook requires additional collections those can be installed like:
+If a playbook requires additional collections:
 
 ```sh
-# having a 'requirements.yml' file:
+# install the collections from a 'requirements.yml' file:
 ansible-galaxy collection install -r requirements.yml
 
 # installing a collection by name:
 ansible-galaxy collection install <collection_name>
 
-# to upgrade all collections from a 'requirements.yml' file use:
+# upgrade all collections from a 'requirements.yml' file:
 ansible-galaxy collection install --upgrade -r requirements.yml
 
-# to upgrade a single collection, use:
+# upgrade a single collection:
 ansible-galaxy collection install --upgrade <collection_name>
 ```
 
