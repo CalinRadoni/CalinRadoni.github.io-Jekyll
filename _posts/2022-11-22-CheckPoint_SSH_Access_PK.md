@@ -6,8 +6,10 @@ description: "Configure access to CheckPoint appliances (R80 and R81) using SSH 
 #date-modified: 2020-mm-dd
 excerpt_separator: <!--more-->
 categories: [ "Networking" ]
-tags: [ "CheckPoint", "SSH", "public key", "RSA", "ed25519", "ssh-keygen" ]
+tags: [ "CheckPoint", "SSH", "public key", "RSA", "ed25519", "ssh-keygen", "Quantum Spark" ]
 ---
+
+**Note for R81 Quantum Spark:** SMB appliances running R81.10.xx, tested on Quantum Spark 1500 R81, see my [Quantum Spark SMB SSH access with Public Key]({% post_url 2023-09-13-Quantum_Spark_SSH_Keys %}) post;
 
 **Contents:**
 
