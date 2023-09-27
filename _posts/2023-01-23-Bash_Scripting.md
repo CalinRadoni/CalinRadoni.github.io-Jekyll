@@ -3,7 +3,7 @@ layout: post
 title: "Bash scripting"
 description: "A template, some notes and links about Bash scripts"
 #image: /assets/img/.png
-#date-modified: 2020-mm-dd
+date-modified: 2023-09-27
 excerpt_separator: <!--more-->
 categories: [ "System Administration" ]
 tags: [ "Bash" ]
@@ -16,6 +16,9 @@ This post contains a **practical** template script and some useful links for Bas
 - [Notes and important links](#notes-and-important-links)
 
 and my [posts related to Bash](/pages/tags.html#bash).
+
+**Important note:** The script is now hosted in my [Bash Scripts](https://github.com/CalinRadoni/Scripts/tree/main/Bash) repository.
+Check the repo for the current version of the script. Any modification will be pushed there, this page will remain unmodified.
 
 ## Template script
 
