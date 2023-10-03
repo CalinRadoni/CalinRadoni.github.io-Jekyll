@@ -3,20 +3,20 @@ layout: post
 title: "LXD Playground for Kubernetes"
 description: "Use LXD system containers to build a playground for Kubernetes"
 #image: /assets/img/.png
-date-modified: 2023-09-22
+date-modified: 2023-10-03
 excerpt_separator: <!--more-->
 categories: [ "System Administration" ]
 tags: [ "LXD", "Kubernetes", "k0s", "K3s", "cloud-init" ]
 ---
 
-This article describes a way to build with [LXD](https://ubuntu.com/lxd) system containers usable to create [Kubernetes](https://kubernetes.io/) servers and workers on a single host.
+This article describes a way to build with [LXD](https://ubuntu.com/lxd) system containers usable to create [Kubernetes](https://kubernetes.io/) servers and workers on a single host. I think that understanding the main steps is important not only for this
+task but also for future usages of LXD.
+
+For a practical, scripted way, see the [playground.sh](https://github.com/CalinRadoni/Scripts/blob/main/LXD/playground.sh) script.
+
+[Test k0s and K3s using LXD]({% post_url 2023-09-26-LXD_k0s_K3s %}) shows a way to use this playground.
 
 Using [cloud-init](https://cloudinit.readthedocs.io/en/latest/) allows for configuring users, IP addresses and SSH keys for those containers.
-
-**Important:**
-
-- There will be another article with a practical, scripted way to do all these but is important to understand the main steps.
-- [Test k0s and K3s using LXD]({% post_url 2023-09-26-LXD_k0s_K3s %}) shows how to use this playground.
 
 Here are the steps:
 
