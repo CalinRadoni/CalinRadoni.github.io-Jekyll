@@ -12,7 +12,7 @@ tags: [ "LXD", "Kubernetes", "k0s", "K3s", "cloud-init" ]
 This article describes a way to build with [LXD](https://ubuntu.com/lxd) system containers usable to create [Kubernetes](https://kubernetes.io/) servers and workers on a single host. I think that understanding the main steps is important not only for this
 task but also for future usages of LXD.
 
-For a practical, scripted way, see the [playground.sh](https://github.com/CalinRadoni/Scripts/blob/main/LXD/playground.sh) script.
+For a practical, scripted way, see the [k-playground.sh](https://github.com/CalinRadoni/Scripts/blob/main/LXD/k-playground.sh) script.
 
 [Test k0s and K3s using LXD]({% post_url 2023-09-26-LXD_k0s_K3s %}) shows a way to use this playground.
 
