@@ -3,7 +3,7 @@ layout: post
 title: "Install Windows 11 in LXD"
 description: "Install Windows 11 as a LXD virtual machine"
 #image: /assets/img/.png
-# date-modified: 2023-10-03
+date-modified: 2023-12-20
 excerpt_separator: <!--more-->
 categories: [ "System Administration" ]
 tags: [ "LXD", "Windows 11" ]
@@ -20,7 +20,7 @@ sudo snap install distrobuilder --classic
 sudo apt -y install libwin-hivex-perl wimtools genisoimage virt-viewer
 ```
 
-**Note:** If you want to use `spicy` instead of `remote-viewer`, install the package `spice-client-gtk` instead of `virt-viewer`.
+**Note:** `remote-viewer` (added by `virt-viewer`) is the recommended Spice client. See the [Spice User Manual](https://www.spice-space.org/spice-user-manual.html) for more information.
 
 ## Installation image
 
