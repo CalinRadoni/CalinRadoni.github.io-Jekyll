@@ -22,35 +22,29 @@ image-d: "The text simple purple theme written in purple over a dark gray backgr
 </section>
 
 <section class="row-vh limited-width padding-1h">
-  <div class="card-hv card-m1vh border-hover-color flex-wM33">
-    <div class="title title-40">
-      <img class="card-title-img-100" src="{% link assets/img/img-main-pax.png %}">
-    </div>
+  <div class="card-hv card-m1vh border-hover-color flex-wM50">
     <div class="body stretched padding-1">
-      <p class="card-row">
-        <h3>Home Automation devices</h3>
-      </p>
-      <p class="card-row">
-        <a href="https://calinradoni.github.io/pax-Gateway/">pax-Gateway</a><br/>
-        <a href="https://calinradoni.github.io/pax-DLED/">pax-DLED</a><br/>
-      </p>
+      <div class="card-row">
+        <h3>Newest <a href="{{ site.baseurl }}{% link pages/index.html %}">Posts</a>:</h3>
+        <nav>
+          <ul>
+            {%- for post in site.posts limit:25 -%}
+              <li>
+                {%- assign xTitle = post.title -%}
+                {%- if site.use-headline and post.headline -%}
+                  {%- assign xTitle = post.headline | append: " ~ " | append: post.title -%}
+                {%- endif -%}
+                <a href="{{ post.url | relative_url }}">{{ xTitle }}</a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </nav>
+      </div>
     </div>
   </div>
 
   <div class="card-hv card-m1vh border-hover-color">
     <div class="body stretched padding-1">
-      {%- if site.data.featured.code[0] %}
-      <div class="card-row">
-        <h3>Some projects:</h3>
-        <nav>
-          <ul>
-            {%- for item in site.data.featured.code -%}
-              <li><a href="{{ item.link }}">{{ item.name }}</a> {{ item.desc }}</li>
-            {%- endfor -%}
-          </ul>
-        </nav>
-      </div>
-      {%- endif %}
       {%- if site.data.featured.posts[0] %}
       <div class="card-row">
         <h3>Featured <a href="{{ site.baseurl }}{% link pages/index.html %}">Posts</a>:</h3>
@@ -58,6 +52,18 @@ image-d: "The text simple purple theme written in purple over a dark gray backgr
           <ul>
             {%- for post in site.data.featured.posts -%}
               <li><a href="{{ post.file | relative_url }}">{{ post.name }}</a></li>
+            {%- endfor -%}
+          </ul>
+        </nav>
+      </div>
+      {%- endif %}
+      {%- if site.data.featured.code[0] %}
+      <div class="card-row">
+        <h3>Some projects:</h3>
+        <nav>
+          <ul>
+            {%- for item in site.data.featured.code -%}
+              <li><a href="{{ item.link }}">{{ item.name }}</a> {{ item.desc }}</li>
             {%- endfor -%}
           </ul>
         </nav>
@@ -74,26 +80,27 @@ image-d: "The text simple purple theme written in purple over a dark gray backgr
         <h3>Tag cloud</h3>
         {% include tag-cloud-number.html %}
       </div>
-      <div class="card-row">
-        <h3>Newest <a href="{{ site.baseurl }}{% link pages/index.html %}">Posts</a>:</h3>
-        <nav>
-          <ul>
-            {%- for post in site.posts limit:5 -%}
-              <li>
-                {%- assign xTitle = post.title -%}
-                {%- if site.use-headline and post.headline -%}
-                  {%- assign xTitle = post.headline | append: " ~ " | append: post.title -%}
-                {%- endif -%}
-                <a href="{{ post.url | relative_url }}">{{ xTitle }}</a>
-              </li>
-            {%- endfor -%}
-          </ul>
-        </nav>
-      </div>
+    </div>
+  </div>
+</section>
+
+<section class="row-vh limited-width padding-1h">
+  <div class="card-hv card-m1vh border-hover-color flex-wM50">
+    <div class="title title-40">
+      <img class="card-title-img-100" src="{% link assets/img/img-main-pax.png %}">
+    </div>
+    <div class="body stretched padding-1">
+      <p class="card-row">
+        <h3>Home Automation devices</h3>
+      </p>
+      <p class="card-row">
+        <a href="https://calinradoni.github.io/pax-Gateway/">pax-Gateway</a><br/>
+        <a href="https://calinradoni.github.io/pax-DLED/">pax-DLED</a><br/>
+      </p>
     </div>
   </div>
 
-  <div class="card-hv card-m1vh border-hover-color flex-wM33">
+  <div class="card-hv card-m1vh border-hover-color">
     <div class="title title-40">
       <img class="card-title-img-100" src="{% link assets/img/img-main-robots.png %}">
     </div>
@@ -104,57 +111,8 @@ image-d: "The text simple purple theme written in purple over a dark gray backgr
       <p class="card-row">
         many years ago I have built some robots but I only mention two:
       </p>
-      <li><a href="https://www.robotshop.com/community/forum/t/cr3cx/4392">cr3cx</a> quite finished</li>
-      <li><a href="https://www.robotshop.com/community/forum/t/cr4cx-security-robot-telepresence/3129">cr4cx</a> in standby indefinitely</li>
-    </div>
-  </div>
-</section>
-
-<section class="row-vh limited-width padding-1h">
-  <div class="card-hv card-m1vh border-hover-color">
-    <div class="title title-40">
-      <img class="card-title-img-100" src="{% link assets/img/img-main-empty-3.png %}">
-    </div>
-    <div class="body stretched padding-1">
-      <div class="card-row">
-        <h3>Devices</h3>
-        <nav><ul>
-        <li><i>link wip</i> <a href="https://calinradoni.github.io/pax-DLEDGrid/">pax-DLEDGrid</a></li>
-        <li><i>link wip</i> Light Controller for stairs</li>
-        <li><i>link wip</i> Light Controller for monochrome LED strip</li>
-        </ul></nav>
-      </div>
-    </div>
-  </div>
-
-  <div class="card-hv card-m1vh border-hover-color">
-    <div class="title title-40">
-      <img class="card-title-img-100" src="{% link assets/img/img-main-empty-1.png %}">
-    </div>
-    <div class="body stretched padding-1">
-      <div class="card-row">
-        <h3>KiCad</h3>
-        <nav><ul>
-        <li><i>link wip</i> Calin's KiCad Library</li>
-        <li><i>link wip</i> Calin's FreeCAD 3D Models for KiCad</li>
-        </ul></nav>
-      </div>
-    </div>
-  </div>
-
-  <div class="card-hv card-m1vh border-hover-color">
-    <div class="title title-40">
-      <img class="card-title-img-100" src="{% link assets/img/img-main-empty-2.png %}">
-    </div>
-    <div class="body stretched padding-1">
-      <div class="card-row">
-        <h3>Various</h3>
-        <nav><ul>
-        <li><i>link wip</i> SMD holder</li>
-        <li><i>link wip</i> Board / module holder</li>
-        <li><i>link wip</i> QnD Soldering vice</li>
-        </ul></nav>
-      </div>
+      <li><a href="https://community.robotshop.com/robots/show/cr3cx">cr3cx</a> quite finished</li>
+      <li><a href="https://community.robotshop.com/forum/t/cr4cx-security-robot-telepresence/3129">cr4cx</a> in standby indefinitely</li>
     </div>
   </div>
 </section>
