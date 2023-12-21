@@ -83,6 +83,7 @@ exclude:
   - Gemfile.lock
   - node_modules
   - vendor
+  - scripts
   - README.md
 
 # ... and inclusions
