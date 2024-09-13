@@ -1,6 +1,10 @@
-# CalinRadoni.github.io
+**This repository is archived. It used Jekyll to build [https://calinradoni.github.io/](https://calinradoni.github.io/)**
 
-This is the repository for [CalinRadoni.github.io](http://CalinRadoni.github.io)
+*Because this repository is archived and not meant to be built again, to eliminate the warnings about old, maybe vulnerable gems, I've commented the `webrick` gem in Gemfile and cleared the content of the `Gemfile.lock` file.*
+
+## CalinRadoni.github.io
+
+This was the repository for [CalinRadoni.github.io](http://CalinRadoni.github.io).
 
 ## Copyright and licenses
 
